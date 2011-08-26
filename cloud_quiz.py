@@ -1,4 +1,4 @@
-from flask import Flask, redirect, request, render_template, session
+from flask import Flask, redirect, request, render_template, session, jsonify
 from flaskext.sqlalchemy import SQLAlchemy
 import re
 
@@ -35,3 +35,19 @@ def index():
 def reload_questions():
 	session['questions'] = Question.query.all()
 	return redirect('/')
+
+@app.route("/answers")
+def get_answers():
+	questions = []
+	for question in Question.query.all():
+		q = {'text':question.text,'terms':[]}
+		for answer in question.answers:
+			found = False
+			for term in q['terms']:
+				if term['text'] == answer.term.text:
+					term['count'] += 1
+					found = True
+			if not found:
+				q['terms'].append({'text':answer.term.text,'count':1})
+		questions.append(q)
+	return jsonify(questions = questions)
