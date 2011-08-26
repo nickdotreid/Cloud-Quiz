@@ -1,0 +1,9 @@
+body{
+	font-family:georgia,times,serif;
+	font-size:14px;
+}
+
+#content{
+	width:550px;
+	margin:0px auto;
+}
