@@ -35,6 +35,11 @@ def index():
 def reload_questions():
 	session['questions'] = Question.query.all()
 	return redirect('/')
+	
+@app.route("/skip")
+def reload_questions():
+	session['questions'] = []
+	return redirect('/')
 
 @app.route("/answers")
 def get_answers():
