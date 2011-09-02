@@ -5,10 +5,12 @@ body{
 	background:#c5d8db url('../i/background-tile.gif') top center repeat-y;
 }
 
-#container{
+.section{
 	width:520px;
 	display:block;
 	margin:0px auto;
+	clear:both;
+	position:relative;
 }
 
 .column{
