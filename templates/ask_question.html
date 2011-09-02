@@ -4,7 +4,7 @@
 <div class="column question {% if success %}success{% endif %}">
 	{% if success %}
 	<h2>Thanks For Asking</h2>
-	<p>Thank you for asking a question.  We will get your question asked at San Francisco's Road To AIDS Town Hall.</p>
+	<p>Thank you for asking a question.  We will get your question asked at <a href="http://roadtoaids2012.org/cities/sanfrancisco.htm">San Francisco's Road To AIDS Town Hall.</a></p>
 	<div class="message">
 		<span class="label">Your Question:</span>
 		<p>{{question['text']}}</p>
@@ -13,7 +13,7 @@
 	<a class="button" href="/">Ask another question</a>
 	{% else %}
 	<h2>Ask a Question!</h2>
-	<p>Do you have any questions about HIV and your community?  Ask it here and have your question answered by local, state, and federal leaders at San Francisco's Road To AIDS 2012 Town Hall meeting September 30 at City Hall. Do you have any suggestions regarding how the National HIV/AIDS Strategy could be better implemented? Tell us what you think!</p>
+	<p>Do you have any questions about HIV and your community?  Ask it here and have your question answered by local, state, and federal leaders at <a href="http://roadtoaids2012.org/cities/sanfrancisco.htm">San Francisco's Road To AIDS 2012 Town Hall</a> meeting September 30 at City Hall. Do you have any suggestions regarding how the National HIV/AIDS Strategy could be better implemented? Tell us what you think!</p>
 	<form action="/" method="POST">
 		<label for="question-name">Your Name <span class="note">(optional)</span></label>
 		<input id="question-name" type="text" name="name" value="" />
