@@ -16,6 +16,7 @@ def index():
 	
 	if request.method == "POST" and 'text' in request.form:
 		success = False
+		errors = {}
 		if len(request.form['text']) > 0 and len(request.form['text']) < 550:
 			question = UserQuestion(request.form['text'])
 			if 'name' in request.form and len(request.form['name'])<255:
@@ -24,5 +25,7 @@ def index():
 			db.session.add(question)
 			db.session.commit()
 			success = True
-		return render_template('ask_question.html',question = request.form,success=success)
+		else:
+			errors['text'] = 'Your question must be less than 500 characters'
+		return render_template('ask_question.html',question = request.form,success=success,errors=errors)
 	return render_template('ask_question.html')
