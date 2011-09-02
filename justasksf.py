@@ -21,7 +21,7 @@ def index():
 			question = UserQuestion(request.form['text'])
 			if 'name' in request.form and len(request.form['name'])<255:
 				question.name = request.form['name']
-			flash('Question saved')
+			flash('Question saved','success')
 			db.session.add(question)
 			db.session.commit()
 			success = True
