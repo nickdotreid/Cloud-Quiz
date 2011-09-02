@@ -1,8 +1,7 @@
 body{
 	font-family:georgia,times,serif;
 	font-size:14px;
-	background-color:#ddd;
-	background:#ddd url('../i/background-tile.gif') top center;
+	background:#c5d8db url('../i/background-tile.gif') top center repeat-y;
 }
 
 #container{
