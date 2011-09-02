@@ -1,6 +1,6 @@
 body{
 	font-family:georgia,times,serif;
-	font-size:16px;
+	font-size:14px;
 	color:#444;
 	background:#c5d8db url('../i/background-tile.gif') top center repeat-y;
 }
@@ -100,4 +100,16 @@ form label.note{
 form .button{
 	margin:7px 0px 3px;
 	width:130px;
+}
+form label.checkbox{
+	position:relative;
+	padding:0px 0px 0px 20px;
+	font-weight:normal;
+}
+form label.checkbox input.checkbox{
+	display:block;
+	width:auto;
+	position:absolute;
+	top:0px;
+	left:0px;
 }

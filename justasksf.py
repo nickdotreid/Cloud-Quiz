@@ -29,4 +29,4 @@ def index():
 			
 			errors['text'] = 'Your question must be less than 500 characters'
 		return render_template('ask_question.html',question = request.form,success=success,errors=errors)
-	return render_template('ask_question.html')
+	return render_template('ask_question.html',question = {"optin":True})
