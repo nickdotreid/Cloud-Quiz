@@ -54,6 +54,17 @@ body{
 	text-indent:-700em;
 }
 
+#head .roadtoaids.logo{
+	position:absolute;
+	top:0px;
+	right:10px;
+	background:transparent url('../i/roadtoaids_logo.jpg') no-repeat top left;
+	overflow:hidden;
+	text-indent:-700px;
+	width:70px;
+	height:70px;
+}
+
 .button{
 	display:block;
 	float:right;
