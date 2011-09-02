@@ -30,14 +30,27 @@ body{
 
 .site_title{
 	font-family:'Tahoma',arial,sans-serif;
-	font-size:3em;
+	font-size:1em;
 	font-weight:normal;
-	margin:0px;
+	margin:7px 14px 14px 0px;
 	padding:0px;
+	background:transparent url('../i/justask_logo.jpg') no-repeat top left;
+	width:208px;
+	height:114px;
+	position:relative;
+	overflow:hidden;
+	text-indent:700em;
 }
 .site_title a{
 	color:#000;
 	text-decoration:none;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:208px;
+	height:114px;
+	overflow:hidden;
+	text-indent:-700em;
 }
 
 .button{
@@ -72,6 +85,21 @@ body{
 	font-size:0.9em;
 	margin:0px 0px 3px;
 	padding:0px;
+}
+
+.social_media .button{
+	width:60px;
+	height:60px;
+	display:block;
+	float:left;
+	margin:3px 7px 0px 0px;
+	cursor:pointer;
+	overflow:hidden;
+	text-indent:700em;
+	background:transparent url('../i/facebook-button.png') no-repeat top left;
+}
+.social_media .button.twitter{
+	background-image:url('../i/twitter-button.png');
 }
 
 form input,form label, form textarea{
