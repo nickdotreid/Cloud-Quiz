@@ -1,7 +1,17 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="column question">
+<div class="column question {% if success %}success{% endif %}">
+	{% if success %}
+	<h2>Thanks For Asking</h2>
+	<p>Thank you for asking a question.  We will get your question asked at San Francisco's Road To AIDS town hall.</p>
+	<div class="message">
+		<span class="label">Your Question:</span>
+		<p>{{question['text']}}</p>
+	</div>
+	<p>Please ask your friends to ask a question by sharing this website with them.</p>
+	<a class="button" href="/">Ask another question</a>
+	{% else %}
 	<h2>Ask a Question</h2>
 	<p>Ask a question and have it answered at San Francisco's Road To AIDS 2012 Town hall meeting.</p>
 	<form action="/" method="POST">
@@ -14,6 +24,7 @@
 		<label for="question-text" class="note limit">(500 Character Limit)</label>
 		<input type="submit" class="button" value="Ask Question" />
 	</form>
+	{% endif %}
 </div>
 <div class="column">
 	<h2>Ask Your Friends</h2>

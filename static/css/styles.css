@@ -39,6 +39,17 @@ body{
 	float:right;
 }
 
+.question.success .message{
+	background:#DDD;
+	color:#000;
+	padding:4px 14px;
+}
+.question.success .message .label{
+	font-size:0.9em;
+	margin:0px 0px 3px;
+	padding:0px;
+}
+
 form input,form label, form textarea{
 	display:block;
 	margin:0px;
