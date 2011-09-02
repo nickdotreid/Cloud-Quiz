@@ -1,6 +1,7 @@
 body{
 	font-family:georgia,times,serif;
-	font-size:14px;
+	font-size:16px;
+	color:#444;
 	background:#c5d8db url('../i/background-tile.gif') top center repeat-y;
 }
 
@@ -8,6 +9,15 @@ body{
 	width:520px;
 	display:block;
 	margin:0px auto;
+}
+
+.column{
+	width:245px;
+	float:left;
+	margin:0px 0px 0px 25px;
+}
+.column:first-child{
+	margin:0px;
 }
 
 .site_title{
@@ -20,4 +30,37 @@ body{
 .site_title a{
 	color:#000;
 	text-decoration:none;
+}
+
+.button{
+	display:block;
+	float:right;
+}
+
+form input,form label, form textarea{
+	display:block;
+	margin:0px;
+	padding:0px;
+}
+form input,form textarea{
+	font-size:1.1em;
+	width:100%;
+	padding:3px;
+	color:#000;
+}
+form label{
+	margin:7px 0px 3px;
+	font-weight:bold;
+	font-size:0.95em;
+}
+form .note{
+	font-weight:normal;
+	font-size:0.9em;
+}
+form label.note{
+	margin:3px 0px 0px;
+}
+form .button{
+	margin:7px 0px 3px;
+	width:130px;
 }

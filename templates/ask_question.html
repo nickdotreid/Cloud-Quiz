@@ -5,13 +5,24 @@
 	<h2>Ask a Question</h2>
 	<p>Ask a question and have it answered at San Francisco's Road To AIDS 2012 Town hall meeting.</p>
 	<form action="/" method="post">
-		<label for="question-name">Your Name (optional)</label>
+		<label for="question-name">Your Name <span class="note">(optional)</span></label>
 		<input id="question-name" type="text" name="name" value="" />
-		<label for="question-email">Your E-Mail (optional)</label>
+		<label for="question-email">Your E-Mail <span class="note">(optional)</span></label>
 		<input id="question-email" type="text" name="email" value="" />
-		<label for="question-text">Your Question <span class="limit">(500 Character Limit)</span></label>
+		<label for="question-text">Your Question</label>
 		<textarea id="question-text" name="text"></textarea>
-		<input type="submit" value="Ask Question" />
+		<label for="question-text" class="note limit">(500 Character Limit)</label>
+		<input type="submit" class="button" value="Ask Question" />
 	</form>
+</div>
+<div class="column">
+	<h2>Ask Your Friends</h2>
+	<p>Tell your friends to have their voice heard.  Share this website</p>
+	<div class="social_media">
+		<a href="#" class="button facebook">Facebook</a>
+		<a href="#" class="button twitter">Twitter</a>
+		<a href="#" class="button email">E-Mail</a>
+		<a href="#" class="button add2any">Add 2 Any</a>
+	</div>
 </div>
 {% endblock %}
