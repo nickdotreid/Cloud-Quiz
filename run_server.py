@@ -1,3 +1,3 @@
-from cloud_quiz import app
+from justasksf import app
 
 app.run(debug=True)
