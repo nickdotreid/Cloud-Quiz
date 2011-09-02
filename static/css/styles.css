@@ -13,7 +13,8 @@ body{
 	position:relative;
 }
 .section h2{
-	margin:3px 0px 7px;
+	margin:13px 0px;
+	clear:both;
 }
 
 .column{
@@ -100,6 +101,21 @@ body{
 }
 .social_media .button.twitter{
 	background-image:url('../i/twitter-button.png');
+}
+
+.register.button{
+	display:block;
+	margin:3px auto;
+	float:none;
+	width:290px;
+	height:49px;
+	cursor:pointer;
+	background:transparent url('../i/register-button.png') top left no-repeat;
+	overflow:hidden;
+	text-indent:-700px;
+}
+a.register.button:hover{
+	background-image:url('../i/register-button_over.png');
 }
 
 form input,form label, form textarea{
