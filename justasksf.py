@@ -15,7 +15,6 @@ from models import *
 def index():
 	
 	if request.method == "POST" and 'text' in request.form:
-		print request.form
 		success = False
 		if len(request.form['text']) > 0 and len(request.form['text']) < 550:
 			question = UserQuestion(request.form['text'])
