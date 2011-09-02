@@ -4,6 +4,9 @@ import re
 
 from db_config import db_uri, secrect_key
 
+from createsend import CreateSend, Subscriber
+CreateSend.api_key = campaign_monitor_api_key
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 app.secret_key = secrect_key
@@ -21,6 +24,9 @@ def index():
 			question = UserQuestion(request.form['text'])
 			if 'name' in request.form and len(request.form['name'])<255:
 				question.name = request.form['name']
+			if 'optin' in request.form and 'email' in request.form and len(request.form['email'])>0:
+				sub = Subscriber()
+				sub.add(campaign_monitor_list_id,request.form['email'],request.form['name'],[],True)
 			flash('Question saved','success')
 			db.session.add(question)
 			db.session.commit()
