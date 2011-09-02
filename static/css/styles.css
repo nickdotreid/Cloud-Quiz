@@ -6,20 +6,26 @@ body{
 }
 
 .section{
-	width:520px;
+	width:720px;
 	display:block;
 	margin:0px auto;
 	clear:both;
 	position:relative;
 }
+.section h2{
+	margin:3px 0px 7px;
+}
 
 .column{
-	width:245px;
+	width:445px;
 	float:left;
 	margin:0px 0px 0px 25px;
 }
 .column:first-child{
 	margin:0px;
+}
+.column.small{
+	width:245px;
 }
 
 .site_title{
