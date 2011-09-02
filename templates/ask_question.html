@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="column question">
+	<h2>Ask a Question</h2>
+	<p>Ask a question and have it answered at San Francisco's Road To AIDS 2012 Town hall meeting.</p>
+	<form action="/" method="post">
+		<label for="question-name">Your Name (optional)</label>
+		<input id="question-name" type="text" name="name" value="" />
+		<label for="question-email">Your E-Mail (optional)</label>
+		<input id="question-email" type="text" name="email" value="" />
+		<label for="question-text">Your Question <span class="limit">(500 Character Limit)</span></label>
+		<textarea id="question-text" name="text"></textarea>
+		<input type="submit" value="Ask Question" />
+	</form>
+</div>
+{% endblock %}
