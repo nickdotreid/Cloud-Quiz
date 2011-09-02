@@ -35,3 +35,14 @@ class Term(db.Model):
 
 	def __repr__(self):
 		return '<Term %r>' % self.text
+		
+class UserQuestion(db.Model):
+	id = db.Column(db.Integer,primary_key=True)
+	text = db.Column(db.String(550))
+	name = db.Column(db.String(255), nullable=True)
+	
+	def __init__(self,text):
+		self.text = text
+		
+	def __repr__(self):
+		return '<UserQuestion %r>' % self.id
