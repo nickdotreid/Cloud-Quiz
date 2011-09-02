@@ -18,12 +18,16 @@
 		<label for="question-name">Your Name <span class="note">(optional)</span></label>
 		<input id="question-name" type="text" name="name" value="" />
 		<label for="question-email">Your E-Mail <span class="note">(optional)</span></label>
-		<input id="question-email" type="text" name="email" value="" />
+		<input id="question-email" class="email" type="text" name="email" value="" />
+		<label for="checkbox">
+			<input type="checkbox" name="optin" value="true" class="checkbox" />
+			Update me about my question.
+		</label>
 		<label for="question-text">Your Question</label>
+		<textarea id="question-text" class="required" name="text" ></textarea>
 		{% if not success and errors and 'text' in errors %}
 		<label for="question-text" class="error">{{errors['text']}}</label>
 		{% endif %}
-		<textarea id="question-text" name="text" ></textarea>
 		<label for="question-text" class="note limit">(500 Character Limit)</label>
 		<input type="text" name="honeypot" value="" style="display:none;" />
 		<input type="submit" class="button" value="Ask Question" />
