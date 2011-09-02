@@ -1,9 +1,24 @@
 body{
 	font-family:georgia,times,serif;
 	font-size:14px;
+	background-color:#ddd;
+	background:#ddd url('../i/background-tile.gif') top center;
 }
 
-#content{
-	width:550px;
+#container{
+	width:520px;
+	display:block;
 	margin:0px auto;
+}
+
+.site_title{
+	font-family:'Tahoma',arial,sans-serif;
+	font-size:3em;
+	font-weight:normal;
+	margin:0px;
+	padding:0px;
+}
+.site_title a{
+	color:#000;
+	text-decoration:none;
 }

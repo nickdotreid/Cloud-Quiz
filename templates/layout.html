@@ -6,13 +6,15 @@
 	<script type="text/javascript" src="/static/js/page.js"></script>
 </head>
 <body>
-	<div id="head">
-		<h1>Just Ask</h1>
-	</div>
-	<div id="content">
-	{% block content %}
-	<p>Default content</p>
-	{% endblock %}
+	<div id="container">
+		<div id="head">
+			<h1 class="site_title"><a href="/">Just Ask</a></h1>
+		</div>
+		<div id="content">
+		{% block content %}
+		<p>Default content</p>
+		{% endblock %}
+		</div>
 	</div>
 </body>
 </html>
