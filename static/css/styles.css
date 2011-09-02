@@ -6,7 +6,7 @@ body{
 }
 
 .section{
-	width:720px;
+	width:775px;
 	display:block;
 	margin:0px auto;
 	clear:both;
@@ -26,7 +26,7 @@ body{
 	margin:0px;
 }
 .column.small{
-	width:245px;
+	width:300px;
 }
 
 .site_title{
