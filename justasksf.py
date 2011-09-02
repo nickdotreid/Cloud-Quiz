@@ -2,7 +2,7 @@ from flask import Flask, redirect, request, flash, render_template, session, jso
 from flaskext.sqlalchemy import SQLAlchemy
 import re
 
-from db_config import db_uri, secrect_key
+from db_config import *
 
 from createsend import CreateSend, Subscriber
 CreateSend.api_key = campaign_monitor_api_key
