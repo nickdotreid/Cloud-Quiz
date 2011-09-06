@@ -56,13 +56,23 @@ body{
 
 #head .roadtoaids.logo{
 	position:absolute;
-	top:0px;
+	top:10px;
 	right:10px;
 	background:transparent url('../i/roadtoaids_logo.jpg') no-repeat top left;
 	overflow:hidden;
 	text-indent:-700px;
 	width:70px;
 	height:70px;
+}
+#head .sfhiv.logo{
+	position:absolute;
+	top:10px;
+	right:85px;
+	background:transparent url('../i/sfhiv_logo_x-small.gif') no-repeat top left;
+	overflow:hidden;
+	text-indent:-700px;
+	width:211px;
+	height:67px;
 }
 
 .button{
