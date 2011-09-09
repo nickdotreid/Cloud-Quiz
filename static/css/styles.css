@@ -75,6 +75,22 @@ body{
 	height:67px;
 }
 
+#foot{
+	clear:both;
+	margin-top:27px;
+	font-size:0.8em;
+}
+#foot .help{
+	display:block;
+	float:right;
+	text-align:right;
+}
+
+#foot .info .seal{
+	float:left;
+	display:block;
+}
+
 .button{
 	display:block;
 	float:right;
