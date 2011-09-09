@@ -19,10 +19,6 @@
 		<input id="question-name" type="text" name="name" value="" />
 		<label for="question-email">Your E-Mail <span class="note">(optional)</span></label>
 		<input id="question-email" class="email" type="text" name="email" value="" />
-		<label class="checkbox">
-			<input type="checkbox" name="optin" value="true" class="checkbox" {% if question and 'optin' in question %}checked="checked"{% endif %} />
-			E-Mail me updates about my question.
-		</label>
 		<label for="question-text">Your Question</label>
 		<textarea id="question-text" class="required" name="text" ></textarea>
 		{% if not success and errors and 'text' in errors %}

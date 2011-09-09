@@ -24,7 +24,7 @@ def index():
 			question = UserQuestion(request.form['text'])
 			if 'name' in request.form and len(request.form['name'])<255:
 				question.name = request.form['name']
-			if 'optin' in request.form and 'email' in request.form and len(request.form['email'])>0:
+			if 'email' in request.form and len(request.form['email'])>0:
 				sub = Subscriber()
 				sub.add(campaign_monitor_list_id,request.form['email'],request.form['name'],[],True)
 			flash('Question saved','success')
