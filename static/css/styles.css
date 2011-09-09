@@ -194,3 +194,7 @@ form label.checkbox input.checkbox{
 	top:0px;
 	left:0px;
 }
+.number.error{
+	color:#db2e13;
+	font-weight:bold;
+}
