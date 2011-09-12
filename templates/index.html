@@ -2,6 +2,9 @@
 
 {% block content %}
 {% for question in questions %}
-<div id="display">loading...</div>
+{% set success = question['success'] %}
+{% set form = question['form'] %}
+{% set errors = question['errors'] %}
+{% include question['template'] %}
 {% endfor %}
 {% endblock %}
