@@ -187,7 +187,7 @@ form label.checkbox{
 	padding:0px 0px 0px 20px;
 	font-weight:normal;
 }
-form label.checkbox input.checkbox{
+form label.checkbox input{
 	display:block;
 	width:auto;
 	position:absolute;
