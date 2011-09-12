@@ -1,0 +1,23 @@
+<div class="column question {% if success %}success{% endif %}">
+	{% if success %}
+	<h2>Thanks For Letting Us Know</h2>
+	<p>Thanks for letting us know what you want to know.  Hopefully this will help us ask better questions.</p>
+	<a class="button" href="/">Ask another question</a>
+	{% else %}
+	
+	<form id="ask_question" action="/" method="POST">
+		<h2><legend>What HIV/AIDS topics do you want to know more about?</legend></h2>
+		<label class="checkbox"><input type="checkbox" name="topics[]" value="Safer Sex" />Safer Sex</label>
+		<label class="checkbox"><input type="checkbox" name="topics[]" value="Partner Services" />Telling partners your HIV status</label>
+		<label class="checkbox"><input type="checkbox" name="topics[]" value="How often to get an HIV test" />How often to get an HIV test</label>
+		<label class="checkbox"><input type="checkbox" name="topics[]" value="Testing at Doctor's Office" />Testing at my doctors office</label>
+		<label class="checkbox"><input type="checkbox" name="topics[]" value="Safer Sex" />PEP/PrEP <span class="note">(Post/Pre-Exposure Prophylaxis)</span></label>
+		<label class="checkbox"><input type="checkbox" name="topics[]" value="Healh Coverage" />Health coverage &amp; HIV</label>
+		<label class="checkbox"><input type="checkbox" name="topics[]" value="Advances in Treatment" />Advances in HIV treatment</label>
+		<label class="checkbox"><input type="checkbox" name="topics[]" value="Access to HIV treatment" />Access to HIV treatment</label>
+		<label class="checkbox"><input type="checkbox" name="topics[]" value="Notifying your partners" />Notifying your partners</label>
+		<label class="checkbox"><input type="checkbox" name="topics[]" value="Undetectable viral load" />Undetectable viral load</label>
+		<input class="button" type="submit" value="Answer" />
+	</form>
+	{% endif %}
+</div>
