@@ -25,8 +25,28 @@ body{
 .column:first-child{
 	margin:0px;
 }
+
+.column .column{
+	display:block;
+	float:left;
+	width:200px;
+	margin-left:12px;
+}
+
 .column.small{
-	width:300px;
+	width:270px;
+}
+
+.question{
+	clear:both;
+}
+.question .info{
+	background:#ffeec0;
+	padding:7px;
+	margin:0px;
+}
+.question.odd .column.small{
+	float:right;
 }
 
 .site_title{
