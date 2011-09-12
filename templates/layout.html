@@ -29,8 +29,6 @@
 <body>
 	<div id="head" class="section">
 		<h1 class="site_title"><a href="/">Just Ask</a></h1>
-		<a class="sfhiv logo" href="http://www.sfhiv.org/">San Francisco HIV Prevention</a>
-		<a class="roadtoaids logo" href="http://www.roadtoaids2012.org/">Road to AIDS 2012</a>
 	</div>
 	<div class="section alerts">
 	{% for category, msg in get_flashed_messages(with_categories=true) %}
@@ -38,11 +36,12 @@
 	{% endfor %}
 	</div>
 	<div id="content" class="section">
-	{% block content %}
-	<p>Default content</p>
-	{% endblock %}
-	<br style="clear:both;" />
+		{% block content %}
+		<p>Default content</p>
+		{% endblock %}
+		<br style="clear:both;" />
 	</div>
+	{% include 'social_media_insert.html' %}
 	<div id="foot" class="section">
 		<span class="help">
 			Questions about this website?<br>
@@ -56,6 +55,10 @@
 			Suite 500<br>
 			San Francisco, CA 94102 
 		</span>
+	</div>
+	<div id="roadtoaids_foot" class="section">
+		<a class="sfhiv logo" href="http://www.sfhiv.org/">San Francisco HIV Prevention</a>
+		<a class="roadtoaids logo" href="http://www.roadtoaids2012.org/">Road to AIDS 2012</a>
 	</div>
 </body>
 </html>
