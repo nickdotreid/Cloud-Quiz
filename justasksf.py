@@ -16,7 +16,21 @@ from models import *
 
 @app.route("/",methods=['GET','POST'])
 def index():
-	
+	questions = [{'template':'topic_question.html'},{'template':'ask_question.html'},{'template':'email_question.html'}]
+	return render_template('index.html',questions=questions)
+
+@app.route("/topic_question",methods=['GET','POST'])
+def topic_question():
+	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'topic[]' in request.form:
+		print request.form
+	else:
+		errors['topic[]'] = 'Please select at least one interest'
+	if request.method == "POST" and 'ajax' in request.form:
+		return "some json"
+	return redirect("/")
+
+@app.route("/ask_question",methods=['GET','POST'])
+def ask_question():
 	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'text' in request.form:
 		success = False
 		errors = {}
@@ -32,11 +46,30 @@ def index():
 			db.session.commit()
 			success = True
 		else:
-			
 			errors['text'] = 'Your question must be less than 500 characters'
-		return render_template('ask_question.html',question = request.form,success=success,errors=errors)
-	return render_template('ask_question.html',question = {"optin":True})
+	if request.method == "POST" and 'ajax' in request.form:
+		return "some json"
+	return redirect("/")
 	
+@app.route("/capture_email",methods=['GET','POST'])
+def capture_email():
+	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'email' in request.form:
+		success = False
+		errors = {}
+		if 'name' in request.form and len(request.form['name'])<255:
+			question.name = request.form['name']
+		if 'email' in request.form and len(request.form['email'])>0:
+			sub = Subscriber()
+			sub.add(campaign_monitor_list_id,request.form['email'],request.form['name'],[],True)
+			flash('Email Saved','success')
+			# save to session?
+			success = True
+		else:
+			errors['email'] = 'we need an email to keep in touch'
+	if request.method == "POST" and 'ajax' in request.form:
+		return "some json"
+	return redirect("/")
+
 @app.route("/register")
 def redirect_to_register():
 	return redirect("https://events.r20.constantcontact.com/register/eventReg?oeidk=a07e4q95wra4c76768d&oseq=")
