@@ -150,7 +150,7 @@ br.cb{
 	padding:0px;
 }
 
-.social_media .button{
+.share_buttons .button{
 	width:60px;
 	height:60px;
 	display:block;
@@ -161,7 +161,7 @@ br.cb{
 	text-indent:700em;
 	background:transparent url('../i/facebook-button.png') no-repeat top left;
 }
-.social_media .button.twitter{
+.share_buttons .button.twitter{
 	background-image:url('../i/twitter-button.png');
 }
 
