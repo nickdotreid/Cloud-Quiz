@@ -5,6 +5,10 @@ body{
 	background:#c5d8db url('../i/background-tile.gif') top center repeat-y;
 }
 
+br.cb{
+	clear:both;
+}
+
 .section{
 	width:775px;
 	display:block;
@@ -39,6 +43,7 @@ body{
 
 .question{
 	clear:both;
+	margin:0px 0px 12px;
 }
 .question .info{
 	background:#fff6db;
