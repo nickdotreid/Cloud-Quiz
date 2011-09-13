@@ -18,7 +18,9 @@ from models import *
 def index():
 	if 'questions' not in session:
 		start_session()
-	return render_template('index.html',questions=session['questions'])
+	questions = session['questions']
+	start_session()
+	return render_template('index.html',questions=questions)
 
 @app.route("/topic_question",methods=['GET','POST'])
 def topic_question():
@@ -33,7 +35,7 @@ def topic_question():
 		errors = {'topics[]':'Please select at least one interest'}
 	if request.method == "POST" and 'ajax' in request.form:
 		return "some json"
-	return redirect("/")
+	return redirect("/#topic_question")
 
 @app.route("/ask_question",methods=['GET','POST'])
 def ask_question():
@@ -52,7 +54,7 @@ def ask_question():
 			errors['text'] = 'Your question must be less than 500 characters'
 	if request.method == "POST" and 'ajax' in request.form:
 		return "some json"
-	return redirect("/")
+	return redirect("/#ask_question")
 	
 @app.route("/capture_email",methods=['GET','POST'])
 def capture_email():
@@ -68,7 +70,7 @@ def capture_email():
 			errors['email'] = 'we need an email to keep in touch'
 	if request.method == "POST" and 'ajax' in request.form:
 		return "some json"
-	return redirect("/")
+	return redirect("/#email_question")
 
 @app.route("/register")
 def redirect_to_register():
