@@ -1,14 +1,13 @@
 {% if success %}
 <div class="question {% if success %}success{% endif %}">
 	<h2>Thanks For Letting Us Know</h2>
-	<p>Thanks for letting us know what you want to know.  Hopefully this will help us ask better questions.</p>
-	<a class="button" href="/">Ask another question</a>
+	<p>Your answers will help us better deliver the information you want to know.  Please sign up below so we can keep you up to date.  Also tell your friends to just ask!</p>
 </div>
 {% else %}
 <form id="topic_question" action="/topic_question" class="question" method="POST">
 	<h2>What HIV/AIDS topics do you want to know more about?</h2>
 	<div class="column small info">
-		<p>We plan to use this information to X Y Z</p>
+		<p>We want to tailor this campaign to you, so please take a minute to tell us what you want to know.</p>
 	</div>
 	<div class="column">
 		<div class="column">

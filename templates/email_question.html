@@ -5,14 +5,14 @@
 </div>
 {% else %}
 <form id="email_question" class="question" action="/capture_email" method="POST">
-	<legend><h2>Keep In Touch</h2></legend>
+	<legend><h2>Sign Up</h2></legend>
 	<div class="column small info">
-		<p>Please tell us your name and email so that we can keep in touch.  We would like to let you know about new information as we get it.</p>
+		<p>Please tell us your name and email so we can keep in touch.  We would like to let you know about new information as we get it.</p>
 	</div>
 	<div class="column">
-		<label for="question-name">Your Name <span class="note">(optional)</span></label>
+		<label for="question-name">Your Name</label>
 		<input id="question-name" type="text" name="name" value="" />
-		<label for="question-email">Your Email <span class="note">(optional)</span></label>
+		<label for="question-email">Your Email</label>
 		<input id="question-email" class="email" type="text" name="email" value="" />
 		<input type="text" name="honeypot" value="" style="display:none;" />
 		<input type="submit" class="button" value="Sign Up" />
