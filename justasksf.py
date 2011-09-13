@@ -16,8 +16,9 @@ from models import *
 
 @app.route("/",methods=['GET','POST'])
 def index():
-	questions = [{'template':'topic_question.html'},{'template':'ask_question.html'},{'template':'email_question.html'}]
-	return render_template('index.html',questions=questions)
+	if 'questions' not in session:
+		start_session()
+	return render_template('index.html',questions=session['questions'])
 
 @app.route("/topic_question",methods=['GET','POST'])
 def topic_question():
@@ -73,3 +74,10 @@ def capture_email():
 @app.route("/register")
 def redirect_to_register():
 	return redirect("https://events.r20.constantcontact.com/register/eventReg?oeidk=a07e4q95wra4c76768d&oseq=")
+	
+def start_session():
+	session['questions'] = {
+		'topic':{'template':'topic_question.html'},
+		'ask':{'template':'ask_question.html'},
+		'email':{'template':'email_question.html'}
+		}
