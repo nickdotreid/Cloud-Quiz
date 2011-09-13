@@ -42,7 +42,6 @@ def ask_question():
 		errors = {}
 		if len(request.form['text']) > 0 and len(request.form['text']) < 550:
 			question = UserQuestion(request.form['text'])
-			flash('Question saved','success')
 			session['questions']['ask']['success'] = True
 			session['questions']['ask']['form'] = request.form
 			session['questions'] = session['questions'] # why do i have to do this?
@@ -63,7 +62,6 @@ def capture_email():
 		if 'email' in request.form and len(request.form['email'])>0:
 			sub = Subscriber()
 			sub.add(campaign_monitor_list_id,request.form['email'],request.form['name'],[],True)
-			flash('Email Saved','success')
 			session['questions']['email']['success'] = True
 			session['questions'] = session['questions'] # why do i have to do this?
 		else:
