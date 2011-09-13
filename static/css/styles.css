@@ -22,7 +22,7 @@ br.cb{
 }
 
 .column{
-	width:445px;
+	width:500px;
 	float:left;
 	margin:0px 0px 0px 25px;
 }
@@ -33,12 +33,15 @@ br.cb{
 .column .column{
 	display:block;
 	float:left;
-	width:200px;
+	width:240px;
 	margin-left:12px;
+}
+.column .column:first-child{
+	margin-left:0px;
 }
 
 .column.small{
-	width:270px;
+	width:230px;
 }
 
 .question{
