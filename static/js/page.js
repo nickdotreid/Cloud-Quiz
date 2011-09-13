@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	$(".question:even").addClass("odd");
+	
 	$("form#ask_question").validate({
 		rules:{
 			text: {
