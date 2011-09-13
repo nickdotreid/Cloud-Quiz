@@ -85,25 +85,35 @@ br.cb{
 	text-indent:-700em;
 }
 
-#head .roadtoaids.logo{
-	position:absolute;
-	top:10px;
-	right:10px;
-	background:transparent url('../i/roadtoaids_logo.jpg') no-repeat top left;
+.logo{
+	display:block;
+	float:left;
+	background:transparent url('../i/roadtoaids_logo.jpg') no-repeat center center;
 	overflow:hidden;
 	text-indent:-700px;
 	width:70px;
-	height:70px;
+	height:90px;
+	margin:0px 7px 0px 0px;
 }
-#head .sfhiv.logo{
-	position:absolute;
-	top:10px;
-	right:85px;
-	background:transparent url('../i/sfhiv_logo_x-small.gif') no-repeat top left;
-	overflow:hidden;
-	text-indent:-700px;
+
+.roadtoaids.logo{
+	background-image:url('../i/roadtoaids_logo.jpg');
+}
+.sfhiv.logo{
+	background-image:url('../i/sfhiv_logo_x-small.gif');
 	width:211px;
-	height:67px;
+}
+.uchaps.logo{
+	background-image:url('../i/uchaps_logo.jpg');
+	width:100px;
+}
+.ceg.logo{
+	background-image:url('../i/ceg_logo.jpg');
+	width:140px;
+}
+.iac.logo{
+	background-image:url('../i/iac_logo.jpg');
+	width:90px;
 }
 
 #foot{
