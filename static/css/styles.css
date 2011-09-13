@@ -116,9 +116,9 @@ br.cb{
 	width:90px;
 }
 
-#foot{
+#foot,#roadtoaids_foot{
 	clear:both;
-	margin-top:27px;
+	padding-top:27px;
 	font-size:0.8em;
 }
 #foot .help{
