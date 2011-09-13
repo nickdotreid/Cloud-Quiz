@@ -1,15 +1,16 @@
+{% if success %}
 <div class="question {% if success %}success{% endif %}">
-	{% if success %}
 	<h2>Thanks For Letting Us Know</h2>
 	<p>Thanks for letting us know what you want to know.  Hopefully this will help us ask better questions.</p>
 	<a class="button" href="/">Ask another question</a>
-	{% else %}
+</div>
+{% else %}
+<form id="topic_question" action="/" class="question" method="POST">
 	<h2>What HIV/AIDS topics do you want to know more about?</h2>
 	<div class="column small info">
 		<p>We plan to use this information to X Y Z</p>
 	</div>
 	<div class="column">
-	<form id="topic_question" action="/" method="POST">
 		<legend><span>What HIV/AIDS topics do you want to know more about?</span></legend>
 		<div class="column">
 			<label class="checkbox"><input type="checkbox" name="topics[]" value="Safer Sex" />Safer Sex</label>
@@ -28,7 +29,6 @@
 		<br class="cb" />
 		<input type="text" name="honeypot" value="" style="display:none;" />
 		<input class="button" type="submit" value="Let Us Know" />
-	</form>
 	</div>
-	{% endif %}
-</div>
+</form>
+{% endif %}
