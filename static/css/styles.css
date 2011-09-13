@@ -56,6 +56,9 @@ br.cb{
 .question.odd .column.small{
 	float:right;
 }
+.question.odd .column{
+	margin:0px;
+}
 
 .site_title{
 	font-family:'Tahoma',arial,sans-serif;
