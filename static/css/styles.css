@@ -122,11 +122,6 @@ br.cb{
 	display:block;
 }
 
-.button{
-	display:block;
-	float:right;
-}
-
 .alert{
 	display:block;
 	margin:3px 10px;
@@ -156,34 +151,38 @@ br.cb{
 	padding:0px;
 }
 
-.share_buttons .button{
-	width:60px;
-	height:60px;
+#share .column{
+	width:350px;
+}
+
+#share h3{
+	margin:7px 0px 0px;
+}
+#share p{
+	margin:3px 0px 0px;
+}
+
+.share_buttons .button,.share_buttons .button:hover{
+	width:32px;
+	height:32px;
 	display:block;
 	float:left;
+	clear:none;
+	font-size:1em;
+	border:0px;
 	margin:3px 7px 0px 0px;
+	padding:0px;
 	cursor:pointer;
 	overflow:hidden;
 	text-indent:700em;
-	background:transparent url('../i/facebook-button.png') no-repeat top left;
+	background:transparent url('../i/facebook_32.png') no-repeat top left;
 }
-.share_buttons .button.twitter{
-	background-image:url('../i/twitter-button.png');
+.share_buttons .button.twitter, .share_buttons .button.twitter:hover{
+	background-image:url('../i/twitter_32.png');
 }
 
-.register.button{
-	display:block;
-	margin:3px auto;
-	float:none;
-	width:290px;
-	height:49px;
-	cursor:pointer;
-	background:transparent url('../i/register-button.png') top left no-repeat;
-	overflow:hidden;
-	text-indent:-700px;
-}
-a.register.button:hover{
-	background-image:url('../i/register-button_over.png');
+a.button.register{
+	margin:3px 0px;
 }
 
 form input,form label, form textarea{
@@ -225,7 +224,55 @@ form label.checkbox input{
 	top:0px;
 	left:0px;
 }
+form label.checkbox .note{
+	display:block;
+}
 .number.error{
 	color:#db2e13;
 	font-weight:bold;
+}
+
+input.button,.button,a.button{
+	display:block;
+	width:210px;
+	text-align:center;
+	clear:both;
+	margin:7px auto;
+	padding:7px;
+	text-decoration:none;
+	color:#000;
+	font-size:1.2em;
+	border:1px #777 solid;
+	background:#BBB url(../i/button_background) repeat-x top center;
+	background-image: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.45, rgb(240,240,240)),
+	    color-stop(0.95, rgb(255,212,176))
+	);
+	background-image: -moz-linear-gradient(
+	    center bottom,
+	    rgb(240,240,240) 45%,
+	    rgb(255,212,176) 95%
+	);
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	cursor:pointer;
+}
+input.button:hover,.button:hover,.button.hover{
+	background-color:#DDD;
+	background-image: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.45, rgb(252,247,252)),
+	    color-stop(0.97, rgb(255,212,176))
+	);
+	background-image: -moz-linear-gradient(
+	    center bottom,
+	    rgb(252,247,252) 45%,
+	    rgb(255,212,176) 97%
+	);
 }
