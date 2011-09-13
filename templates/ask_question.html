@@ -1,5 +1,5 @@
 {% if success %}
-<div class="question {% if success %}success{% endif %}">
+<div id="ask_question" class="question {% if success %}success{% endif %}">
 	<h2>Thanks For Asking</h2>
 	<p>Thank you for asking a question.  We will get your question asked at <a href="http://roadtoaids2012.org/cities/sanfrancisco.htm">San Francisco's Road To AIDS Town Hall.</a></p>
 	<div class="message">
@@ -7,7 +7,6 @@
 		<p>{{form['text']}}</p>
 	</div>
 	<p>Please ask your friends to ask a question by sharing this website with them.  Sign up below to keep in touch.</p>
-	<a class="button" href="/">Ask another question</a>
 </div>
 {% else %}
 <form id="ask_question" class="question" action="/ask_question" method="POST">
