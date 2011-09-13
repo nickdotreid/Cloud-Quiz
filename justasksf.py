@@ -22,10 +22,15 @@ def index():
 
 @app.route("/topic_question",methods=['GET','POST'])
 def topic_question():
-	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'topic[]' in request.form:
+	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'topics[]' in request.form:
+		for key in request.form:
+			print key
 		print request.form
+		#if 'topic' in session['questions']:
+		session['questions']['topic']['success'] = True
+		session['questions'] = session['questions'] # why do i have to do this?
 	else:
-		errors['topic[]'] = 'Please select at least one interest'
+		errors = {'topics[]':'Please select at least one interest'}
 	if request.method == "POST" and 'ajax' in request.form:
 		return "some json"
 	return redirect("/")
@@ -37,12 +42,10 @@ def ask_question():
 		errors = {}
 		if len(request.form['text']) > 0 and len(request.form['text']) < 550:
 			question = UserQuestion(request.form['text'])
-			if 'name' in request.form and len(request.form['name'])<255:
-				question.name = request.form['name']
-			if 'email' in request.form and len(request.form['email'])>0:
-				sub = Subscriber()
-				sub.add(campaign_monitor_list_id,request.form['email'],request.form['name'],[],True)
 			flash('Question saved','success')
+			session['questions']['ask']['success'] = True
+			session['questions']['ask']['form'] = request.form
+			session['questions'] = session['questions'] # why do i have to do this?
 			db.session.add(question)
 			db.session.commit()
 			success = True
@@ -57,14 +60,12 @@ def capture_email():
 	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'email' in request.form:
 		success = False
 		errors = {}
-		if 'name' in request.form and len(request.form['name'])<255:
-			question.name = request.form['name']
 		if 'email' in request.form and len(request.form['email'])>0:
 			sub = Subscriber()
 			sub.add(campaign_monitor_list_id,request.form['email'],request.form['name'],[],True)
 			flash('Email Saved','success')
-			# save to session?
-			success = True
+			session['questions']['email']['success'] = True
+			session['questions'] = session['questions'] # why do i have to do this?
 		else:
 			errors['email'] = 'we need an email to keep in touch'
 	if request.method == "POST" and 'ajax' in request.form:
@@ -76,6 +77,7 @@ def redirect_to_register():
 	return redirect("https://events.r20.constantcontact.com/register/eventReg?oeidk=a07e4q95wra4c76768d&oseq=")
 	
 def start_session():
+	print 'session start'
 	session['questions'] = {
 		'topic':{'template':'topic_question.html'},
 		'ask':{'template':'ask_question.html'},
