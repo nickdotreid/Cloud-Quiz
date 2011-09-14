@@ -2,15 +2,22 @@ $(document).ready(function(){
 	$(".question:even").addClass("odd");
 	$(".question").append("<br class='cb' />")
 	
-	$("form#ask_question").validate({
-		rules:{
-			text: {
-				required: true,
-				maxlength: 500
-			}
+	$("form").append('<input type="hidden" value="true" name="ajax" />').submit(function(event){
+		event.preventDefault();
+		form = $(this);
+		if(!form.validate({rules:{text: {required: true,maxlength: 500}}}).form()){
+			return false;
 		}
+		$.ajax({
+			url:form.attr("action"),
+			type:form.attr("method"),
+			data:form.serialize(),
+			success:function(data){
+				form.before(data);
+				form.remove();
+			}
 		});
-		
+	})
 	$("form input,form textarea").each(function(){
 		input = $(this);
 		if($("label[for="+input.attr('id')+"].limit").length>0){

@@ -26,11 +26,11 @@ def index():
 def topic_question():
 	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'topics[]' in request.form:
 		session['questions']['topic']['success'] = True
-		session['questions'] = session['questions'] # why do i have to do this?
 	else:
 		errors = {'topics[]':'Please select at least one interest'}
 	if request.method == "POST" and 'ajax' in request.form:
-		return "some json"
+		return render_template('topic_question.html',success=True,form=request.form,errors={})
+	session['questions'] = session['questions'] # why do i have to do this?
 	return redirect("/#topic_question")
 
 @app.route("/ask_question",methods=['GET','POST'])
@@ -42,14 +42,14 @@ def ask_question():
 			question = UserQuestion(request.form['text'])
 			session['questions']['ask']['success'] = True
 			session['questions']['ask']['form'] = request.form
-			session['questions'] = session['questions'] # why do i have to do this?
 			db.session.add(question)
 			db.session.commit()
 			success = True
 		else:
 			errors['text'] = 'Your question must be less than 500 characters'
 	if request.method == "POST" and 'ajax' in request.form:
-		return "some json"
+		return render_template('ask_question.html',success=True,form=request.form,errors={})
+	session['questions'] = session['questions'] # why do i have to do this?
 	return redirect("/#ask_question")
 	
 @app.route("/capture_email",methods=['GET','POST'])
@@ -61,11 +61,11 @@ def capture_email():
 			sub = Subscriber()
 			sub.add(campaign_monitor_list_id,request.form['email'],request.form['name'],[],True)
 			session['questions']['email']['success'] = True
-			session['questions'] = session['questions'] # why do i have to do this?
 		else:
 			errors['email'] = 'we need an email to keep in touch'
 	if request.method == "POST" and 'ajax' in request.form:
-		return "some json"
+		return render_template('email_question.html',success=True,form=request.form,errors={})
+	session['questions'] = session['questions'] # why do i have to do this?
 	return redirect("/#email_question")
 
 @app.route("/register")
