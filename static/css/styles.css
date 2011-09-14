@@ -251,6 +251,7 @@ input.button,.button,a.button{
 	padding:7px;
 	text-decoration:none;
 	color:#000;
+	text-shadow: -3px 3px 3px #FFF;
 	font-size:1.2em;
 	border:1px #777 solid;
 	background:#BBB url(../i/button_background) repeat-x top center;
@@ -258,14 +259,15 @@ input.button,.button,a.button{
 	    linear,
 	    left bottom,
 	    left top,
-	    color-stop(0.45, rgb(240,240,240)),
-	    color-stop(0.95, rgb(255,212,176))
+	    color-stop(0.25, rgb(219,219,219)),
+	    color-stop(0.84, rgb(242,247,247))
 	);
 	background-image: -moz-linear-gradient(
 	    center bottom,
-	    rgb(240,240,240) 45%,
-	    rgb(255,212,176) 95%
+	    rgb(219,219,219) 25%,
+	    rgb(242,247,247) 84%
 	);
+
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;
@@ -277,12 +279,12 @@ input.button:hover,.button:hover,.button.hover{
 	    linear,
 	    left bottom,
 	    left top,
-	    color-stop(0.45, rgb(252,247,252)),
-	    color-stop(0.97, rgb(255,212,176))
+	    color-stop(0.25, rgb(240,240,240)),
+	    color-stop(0.84, rgb(255,255,255))
 	);
 	background-image: -moz-linear-gradient(
 	    center bottom,
-	    rgb(252,247,252) 45%,
-	    rgb(255,212,176) 97%
+	    rgb(240,240,240) 25%,
+	    rgb(255,255,255) 84%
 	);
 }
