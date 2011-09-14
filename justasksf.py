@@ -16,9 +16,6 @@ from models import *
 
 @app.route("/",methods=['GET','POST'])
 def index():
-	if 'questions' not in session:
-		start_session()
-	questions = session['questions']
 	start_session()
 	return render_template('index.html',questions=questions)
 
