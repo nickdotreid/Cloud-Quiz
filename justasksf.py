@@ -22,7 +22,13 @@ def index():
 
 @app.route("/topic_question",methods=['GET','POST'])
 def topic_question():
-	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'topics[]' in request.form:
+	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'topic' in request.form:
+		topic = request.form.getlist('topic')
+		for value in topic:
+			question = Question(value)
+			db.session.add(question)
+			db.session.commit()
+			save_answer(question)
 		session['questions']['topic']['success'] = True
 	else:
 		errors = {'topics[]':'Please select at least one interest'}
