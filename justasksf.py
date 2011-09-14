@@ -25,10 +25,6 @@ def index():
 @app.route("/topic_question",methods=['GET','POST'])
 def topic_question():
 	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'topics[]' in request.form:
-		for key in request.form:
-			print key
-		print request.form
-		#if 'topic' in session['questions']:
 		session['questions']['topic']['success'] = True
 		session['questions'] = session['questions'] # why do i have to do this?
 	else:
@@ -77,7 +73,6 @@ def redirect_to_register():
 	return redirect("https://events.r20.constantcontact.com/register/eventReg?oeidk=a07e4q95wra4c76768d&oseq=")
 	
 def start_session():
-	print 'session start'
 	session['questions'] = {
 		'topic':{'template':'topic_question.html'},
 		'ask':{'template':'ask_question.html'},
