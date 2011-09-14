@@ -10,22 +10,24 @@ br.cb{
 }
 
 .wrapper{
-	width:825px;
+	width:891px;
 	margin:0px auto 20px;
 	display:block;
 	position:relative;
 	background-color:#FFF;
 	padding:15px 0px 0px;
-	border-left:#dadada 2px solid;
-	border-right:#dadada 2px solid;
+	overflow:visible;
 }
 
 .section{
-	width:775px;
+	width:820px;
 	display:block;
 	margin:0px auto;
+	padding:0px;
 	clear:both;
 	position:relative;
+	border-left:#f29d49 4px solid;
+	border-right:#f29d49 4px solid;
 }
 .section h2{
 	margin:13px 0px;
@@ -57,7 +59,7 @@ br.cb{
 
 .question{
 	clear:both;
-	margin:0px 0px 12px;
+	padding:7px 25px 12px;
 }
 .question .info{
 	background:#fff6db;
@@ -71,16 +73,28 @@ br.cb{
 	margin:0px;
 }
 
-.site_title{
+#head{
+	background:transparent url('../i/header-background.png') center bottom no-repeat;
+	margin:0px;
+	padding:0px;
+	overflow:visible;
+	border:0px;
+	width:auto;
+	min-height:165px;
+}
+
+#head .site_title{
 	font-family:'Tahoma',arial,sans-serif;
 	font-size:1em;
 	font-weight:normal;
-	margin:7px 14px 14px 0px;
+	margin:7px 14px 0px 0px;
 	padding:0px;
 	background:transparent url('../i/justask_logo.png') no-repeat top left;
 	width:299px;
 	height:161px;
-	position:relative;
+	position:absolute;
+	bottom:0px;
+	left:55px;
 	overflow:hidden;
 	text-indent:700em;
 }
