@@ -39,11 +39,12 @@ def ask_question():
 		success = False
 		errors = {}
 		if len(request.form['text']) > 0 and len(request.form['text']) < 550:
-			question = UserQuestion(request.form['text'])
+			question = Question(request.form['text'])
 			session['questions']['ask']['success'] = True
 			session['questions']['ask']['form'] = request.form
 			db.session.add(question)
 			db.session.commit()
+			save_answer(question)
 			success = True
 		else:
 			errors['text'] = 'Your question must be less than 500 characters'
@@ -58,6 +59,9 @@ def capture_email():
 		success = False
 		errors = {}
 		if 'email' in request.form and len(request.form['email'])>0:
+			session['email'] = request.form['email']
+			create_user(request.form['email'],request.form['name'])
+			save_answer()
 			sub = Subscriber()
 			sub.add(campaign_monitor_list_id,request.form['email'],request.form['name'],[],True)
 			session['questions']['email']['success'] = True
@@ -78,3 +82,28 @@ def start_session():
 		'ask':{'template':'ask_question.html'},
 		'email':{'template':'email_question.html'}
 		}
+	session['answers'] = []
+	session['email'] = None
+	
+def save_answer(answer=None):
+	user = None
+	if answer is not None:
+		session['answers'].append(answer.id)
+		session['answers'] = session['answers']
+	if session['email'] is not None:
+		user = create_user(session['email'])
+	for answer_id in session['answers']:
+		question = Question.query.filter_by(id=answer_id).first()
+		if question is not None and user is not None:
+			user.questions.append(question)
+	db.session.commit()
+		
+def create_user(email = None,name = None):
+	if email is not None and email != '' and User.query.filter_by(email=email).first() is not None:
+		return User.query.filter_by(email=email).first()
+	if name is not None and name != '' and User.query.filter_by(name=name).first() is not None:
+		return User.query.filter_by(name=name).first()
+	user = User(email,name)
+	db.session.add(user)
+	db.session.commit()
+	return user

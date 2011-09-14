@@ -1,22 +1,9 @@
-from cloud_quiz import db
-
-class Answer(db.Model):
-	id = db.Column(db.Integer,primary_key=True)
-	question_id = db.Column(db.Integer, db.ForeignKey('question.id'))
-	term_id = db.Column(db.Integer, db.ForeignKey('term.id'))
-	
-	def __init__(self,question,term):
-		self.question = question
-		self.term = term
-		
-	def __repr(self):
-		return '<Answer %r>' % self.id
+from justasksf import db
 
 class Question(db.Model):
 	id = db.Column(db.Integer,primary_key=True)
 	text = db.Column(db.String(255))
-	
-	answers = db.relationship('Answer',backref='question',lazy="dynamic")
+	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 	
 	def __init__(self, text):
 		self.text = text
@@ -24,25 +11,15 @@ class Question(db.Model):
 	def __repr__(self):
 		return '<Question %r>' % self.text
 		
-class Term(db.Model):
+class User(db.Model):
 	id = db.Column(db.Integer,primary_key=True)
-	text = db.Column(db.String(255))
+	email = db.Column(db.String(255), nullable=True)
+	name = db.Column(db.String(255), nullable=True)
+	questions = db.relationship('Question',backref='user',lazy="dynamic")
 	
-	answers = db.relationship('Answer',backref='term',lazy="dynamic")
-	
-	def __init__(self, text):
-		self.text = text
+	def __init__(self,email=None,name=None):
+		self.email = email
+		self.name = name
 
 	def __repr__(self):
-		return '<Term %r>' % self.text
-		
-class UserQuestion(db.Model):
-	id = db.Column(db.Integer,primary_key=True)
-	text = db.Column(db.String(550))
-	name = db.Column(db.String(255), nullable=True)
-	
-	def __init__(self,text):
-		self.text = text
-		
-	def __repr__(self):
-		return '<UserQuestion %r>' % self.id
+		return '<User %r>' % self.email
