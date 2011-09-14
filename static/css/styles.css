@@ -2,11 +2,22 @@ body{
 	font-family:georgia,times,serif;
 	font-size:14px;
 	color:#444;
-	background:#c5d8db url('../i/background-tile.gif') top center repeat-y;
+	background:#c5d8db top center repeat-y;
 }
 
 br.cb{
 	clear:both;
+}
+
+.wrapper{
+	width:825px;
+	margin:0px auto 20px;
+	display:block;
+	position:relative;
+	background-color:#FFF;
+	padding:15px 0px 0px;
+	border-left:#dadada 2px solid;
+	border-right:#dadada 2px solid;
 }
 
 .section{
@@ -116,9 +127,18 @@ br.cb{
 	width:90px;
 }
 
-#foot,#roadtoaids_foot{
+#roadtoaids_foot{
 	clear:both;
-	padding-top:27px;
+	padding:27px 0px 10px;
+	font-size:0.8em;
+	height:90px;
+}
+
+#foot{
+	clear:both;
+	background-color:#dadada;
+	width:auto;
+	padding:30px;
 	font-size:0.8em;
 }
 #foot .help{
