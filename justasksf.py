@@ -17,6 +17,7 @@ from models import *
 @app.route("/",methods=['GET','POST'])
 def index():
 	start_session()
+	questions = session['questions']
 	return render_template('index.html',questions=questions)
 
 @app.route("/topic_question",methods=['GET','POST'])
