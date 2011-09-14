@@ -27,41 +27,42 @@
 	</script>
 </head>
 <body>
-	<div id="head" class="section">
-		<h1 class="site_title"><a href="/">Just Ask</a></h1>
-	</div>
-	<div class="section alerts">
-	{% for category, msg in get_flashed_messages(with_categories=true) %}
-	<p class="alert {{ category }}">{{ msg }}</p>
-	{% endfor %}
-	</div>
-	<div id="content" class="section">
-		{% block content %}
-		<p>Default content</p>
-		{% endblock %}
-		<br style="clear:both;" />
-	</div>
-	{% include 'social_media_insert.html' %}
-	<div id="roadtoaids_foot" class="section">
-		<a class="roadtoaids logo" href="http://www.roadtoaids2012.org/">Road to AIDS 2012</a>
-		<a class="sfhiv logo" href="http://www.sfhiv.org/">San Francisco HIV Prevention</a>
-		<a class="uchaps logo" href="http://www.uchaps.org/">Urban Coalition for HIV/AIDS Prevention Services</a>
-		<a class="ceg logo" href="http://communityeducationgroup.org/">Community Education Group</a>
-		<a class="iac logo" href="http://www.aids2012.org/">AIDS 2012</a>
-	</div>
-	<div id="foot" class="section">
-		<span class="help">
-			Questions about this website?<br>
-			Email:<a href="mailto:info@justasksf.org">info@justasksf.org</a>
-		</span>
-		<span class="info">
-			<img class="seal" src="/static/i/dph_seal_small.jpg" alt="" />
-			San Francisco Department of Public Health<br>
-			HIV Prevention Section<br>
-			25 Van Ness Ave<br>
-			Suite 500<br>
-			San Francisco, CA 94102 
-		</span>
+	<div class="wrapper">
+		<div id="head" class="section">
+			<h1 class="site_title"><a href="/">Just Ask</a></h1>
+		</div>
+		<div class="section alerts">
+		{% for category, msg in get_flashed_messages(with_categories=true) %}
+		<p class="alert {{ category }}">{{ msg }}</p>
+		{% endfor %}
+		</div>
+		<div id="content" class="section">
+			{% block content %}
+			<p>Default content</p>
+			{% endblock %}
+			<br style="clear:both;" />
+		</div>
+		{% include 'social_media_insert.html' %}
+		<div id="roadtoaids_foot" class="section">
+			<a class="roadtoaids logo" href="http://www.roadtoaids2012.org/">Road to AIDS 2012</a>
+			<a class="sfhiv logo" href="http://www.sfhiv.org/">San Francisco HIV Prevention</a>
+			<a class="uchaps logo" href="http://www.uchaps.org/">Urban Coalition for HIV/AIDS Prevention Services</a>
+			<a class="ceg logo" href="http://communityeducationgroup.org/">Community Education Group</a>
+			<a class="iac logo" href="http://www.aids2012.org/">AIDS 2012</a>
+		</div>
+		<div id="foot" class="section">
+			<span class="help">
+				Questions about this website?<br>
+				Email:<a href="mailto:info@justasksf.org">info@justasksf.org</a>
+			</span>
+			<span class="info">
+				San Francisco Department of Public Health<br>
+				HIV Prevention Section<br>
+				25 Van Ness Ave<br>
+				Suite 500<br>
+				San Francisco, CA 94102 
+			</span>
+		</div>
 	</div>
 </body>
 </html>
