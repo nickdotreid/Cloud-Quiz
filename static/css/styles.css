@@ -254,7 +254,7 @@ input.button,.button,a.button{
 	text-shadow: -3px 3px 3px #FFF;
 	font-size:1.2em;
 	border:1px #777 solid;
-	background:#BBB url(../i/button_background) repeat-x top center;
+	background:#DDD repeat-x top center;
 	background-image: -webkit-gradient(
 	    linear,
 	    left bottom,
@@ -274,7 +274,7 @@ input.button,.button,a.button{
 	cursor:pointer;
 }
 input.button:hover,.button:hover,.button.hover{
-	background-color:#DDD;
+	background-color:#EEE;
 	background-image: -webkit-gradient(
 	    linear,
 	    left bottom,
