@@ -140,29 +140,29 @@ br.cb{
 
 #roadtoaids_foot{
 	clear:both;
-	padding:27px 0px 10px;
+	padding:27px 75px 10px;
 	font-size:0.8em;
 	height:90px;
-	width:650px;
+	width:670px;
 	margin:0px auto;
 }
 
 #foot{
 	clear:both;
-	background-color:#dadada;
-	width:auto;
-	padding:30px;
+	background:transparent url('../i/foot-top.png') center top no-repeat;
+	padding:50px 0px;
 	font-size:0.8em;
+	border:0px;
+	width:828px;
 }
 #foot .help{
 	display:block;
-	float:right;
-	text-align:right;
+	text-align:center;
 }
-
-#foot .info .seal{
-	float:left;
+#foot .info{
 	display:block;
+	text-align:center;
+	margin:7px 0px;
 }
 
 .alert{
@@ -194,11 +194,12 @@ br.cb{
 	padding:0px;
 }
 
-#share .column{
-	width:350px;
+#share{
+	padding:7px 75px 7px;
+	width:670px;
 }
 
-#share h3{
+#share h2{
 	margin:7px 0px 0px;
 }
 #share p{
