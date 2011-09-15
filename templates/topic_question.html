@@ -4,27 +4,31 @@
 	<p>Your answers will help us better deliver the information you want to know.  Please <a href="#email_question">sign up</a> below so we can keep you up to date.  Also <a href="#share">tell your friends to just ask!</a></p>
 </div>
 {% else %}
-<form id="topic_question" action="/topic_question" class="question" method="POST">
+<div id="topic_question" class="question">
 	<h2>What HIV/AIDS topics do you want to know more about?</h2>
-	<div class="info">
-		<p>We want to help you find the information you need, so please take a minute to tell us what you want to know.</p>
-	</div>
-	<div class="column">
-		<label class="checkbox"><input type="checkbox" name="topic" value="Safer Sex" />Safer Sex</label>
-		<label class="checkbox"><input type="checkbox" name="topic" value="Telling partners your HIV status" />Telling partners your HIV status</label>
-		<label class="checkbox"><input type="checkbox" name="topic" value="How often to get an HIV test" />How often to get an HIV test</label>
-		<label class="checkbox"><input type="checkbox" name="topic" value="Testing at my doctor's office" />Testing at my doctor's office</label>
-		<label class="checkbox"><input type="checkbox" name="topic" value="PEP/PrEP" />PEP/PrEP <span class="note">(Post/Pre-Exposure Prophylaxis)</span></label>
-	</div>                                                        
-	<div class="column">                                          
-		<label class="checkbox"><input type="checkbox" name="topic" value="Healh Coverage" />Health coverage &amp; HIV</label>
-		<label class="checkbox"><input type="checkbox" name="topic" value="Advances in Treatment" />Advances in HIV treatment</label>
-		<label class="checkbox"><input type="checkbox" name="topic" value="Access to HIV treatment" />Access to HIV treatment</label>
-		<label class="checkbox"><input type="checkbox" name="topic" value="Notifying your partners" />Notifying your partners</label>
-		<label class="checkbox"><input type="checkbox" name="topic" value="Undetectable viral load" />Undetectable viral load</label>
-	</div>
-	<br class="cb" />
-	<input type="text" name="honeypot" value="" style="display:none;" />
-	<input class="button" type="submit" value="Let Us Know" />
-</form>
+	<form action="/topic_question" method="POST">
+		<legend>
+		<div class="info">
+			<p>We want to help you find the information you need, so please take a minute to tell us what you want to know.</p>
+		</div>
+		</legend>
+		<div class="column">
+			<label class="checkbox"><input type="checkbox" name="topic" value="Safer Sex" />Safer Sex</label>
+			<label class="checkbox"><input type="checkbox" name="topic" value="Telling partners your HIV status" />Telling partners your HIV status</label>
+			<label class="checkbox"><input type="checkbox" name="topic" value="How often to get an HIV test" />How often to get an HIV test</label>
+			<label class="checkbox"><input type="checkbox" name="topic" value="Testing at my doctor's office" />Testing at my doctor's office</label>
+			<label class="checkbox"><input type="checkbox" name="topic" value="PEP/PrEP" />PEP/PrEP <span class="note">(Post/Pre-Exposure Prophylaxis)</span></label>
+		</div>                                                        
+		<div class="column">                                          
+			<label class="checkbox"><input type="checkbox" name="topic" value="Healh Coverage" />Health coverage &amp; HIV</label>
+			<label class="checkbox"><input type="checkbox" name="topic" value="Advances in Treatment" />Advances in HIV treatment</label>
+			<label class="checkbox"><input type="checkbox" name="topic" value="Access to HIV treatment" />Access to HIV treatment</label>
+			<label class="checkbox"><input type="checkbox" name="topic" value="Notifying your partners" />Notifying your partners</label>
+			<label class="checkbox"><input type="checkbox" name="topic" value="Undetectable viral load" />Undetectable viral load</label>
+		</div>
+		<br class="cb" />
+		<input type="text" name="honeypot" value="" style="display:none;" />
+		<input class="button" type="submit" value="Let Us Know" />
+	</form>
+</div>
 {% endif %}

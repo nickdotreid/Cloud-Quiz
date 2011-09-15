@@ -4,16 +4,20 @@
 	<p>We will alert you when we starting making changes, and answering you questions.</p>
 </div>
 {% else %}
-<form id="email_question" class="question" action="/capture_email" method="POST">
-	<legend><h2>Sign Up</h2></legend>
-	<div class="info">
-		<p>Please tell us your name and email so we can keep in touch.  We would like to let you know about new information as we get it.</p>
-	</div>
-	<label for="question-name">Your Name</label>
-	<input id="question-name" type="text" name="name" value="" />
-	<label for="question-email">Your Email</label>
-	<input id="question-email" class="email" type="text" name="email" value="" />
-	<input type="text" name="honeypot" value="" style="display:none;" />
-	<input type="submit" class="button" value="Sign Up" />
-</form>
+<div id="email_question" class="question">
+	<h2>Sign Up</h2>
+	<form action="/capture_email" method="POST">
+		<legend>
+		<div class="info">
+			<p>Please tell us your name and email so we can keep in touch.  We would like to let you know about new information as we get it.</p>
+		</div>
+		</legend>
+		<label for="question-name">Your Name</label>
+		<input id="question-name" type="text" name="name" value="" />
+		<label for="question-email">Your Email</label>
+		<input id="question-email" class="email" type="text" name="email" value="" />
+		<input type="text" name="honeypot" value="" style="display:none;" />
+		<input type="submit" class="button" value="Sign Up" />
+	</form>
+</div>
 {% endif %}

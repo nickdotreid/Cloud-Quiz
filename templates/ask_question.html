@@ -9,19 +9,23 @@
 	<p>Please <a href="#share">tell your friends to just ask</a>.  Sign up below to <a href="email_question">keep in touch.</a></p>
 </div>
 {% else %}
-<form id="ask_question" class="question" action="/ask_question" method="POST">
+<div id="ask_question" class="question">
 	<h2>Ask a Question!</h2>
-	<div class="info">
-		<p>Do you have any questions about HIV and your community?</p>
-		<p>Ask it here and have your question answered by local, state, and federal leaders at <a href="http://roadtoaids2012.org/cities/sanfrancisco.htm">San Francisco's Road To AIDS 2012 Town Hall</a> meeting September 30 at City Hall.</p>
-	</div>
-	<label for="question-text">Your Question</label>
-	<textarea id="question-text" class="required" name="text" ></textarea>
-	{% if not success and errors and 'text' in errors %}
-	<label for="question-text" class="error">{{errors['text']}}</label>
-	{% endif %}
-	<label for="question-text" class="note limit">(<span class="number">500</span> Character Limit)</label>
-	<input type="text" name="honeypot" value="" style="display:none;" />
-	<input type="submit" class="button" value="Just Ask" />
-</form>
+	<form action="/ask_question" method="POST">
+		<legend>
+		<div class="info">
+			<p>Do you have any questions about HIV and your community?</p>
+			<p>Ask it here and have your question answered by local, state, and federal leaders at <a href="http://roadtoaids2012.org/cities/sanfrancisco.htm">San Francisco's Road To AIDS 2012 Town Hall</a> meeting September 30 at City Hall.</p>
+		</div>
+		</legend>
+		<label for="question-text">Your Question</label>
+		<textarea id="question-text" class="required" name="text" ></textarea>
+		{% if not success and errors and 'text' in errors %}
+		<label for="question-text" class="error">{{errors['text']}}</label>
+		{% endif %}
+		<label for="question-text" class="note limit">(<span class="number">500</span> Character Limit)</label>
+		<input type="text" name="honeypot" value="" style="display:none;" />
+		<input type="submit" class="button" value="Just Ask" />
+	</form>
+</div>
 {% endif %}

@@ -1,6 +1,6 @@
 body{
 	font-family:georgia,times,serif;
-	font-size:14px;
+	font-size:15px;
 	color:#444;
 	background:#FFF top center repeat-y;
 }
@@ -37,7 +37,7 @@ br.cb{
 .column{
 	display:block;
 	float:left;
-	width:240px;
+	width:235px;
 	margin-left:12px;
 }
 .column:first-child{
@@ -50,12 +50,24 @@ br.cb{
 	padding:7px 25px 12px;
 }
 .question .info{
-	background:#fff6db;
+	background:transparent url('../i/info-blue.png') top right no-repeat;
 	padding:7px;
 	margin:0px;
+	position:absolute;
+	left:520px;
+	width:300px;
 }
 .question.odd .info{
-	float:right;
+	background:transparent url('../i/info-blue-odd.png') top left no-repeat;
+	left:-64px;
+}
+.question form{
+	position:relative;
+	padding-right:275px;
+}
+.question.odd form{
+	padding-right:0px;
+	padding-left:275px;
 }
 
 #head{
