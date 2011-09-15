@@ -32,6 +32,10 @@
 	<div class="wrapper">
 		<div id="head" class="section">
 			<h1 class="site_title"><a href="/">Just Ask</a></h1>
+			{% block navigation %}
+			{% include 'register_insert.html' %}
+			{% endblock %}
+			<br class="cb" />
 		</div>
 		<div class="section alerts">
 		{% for category, msg in get_flashed_messages(with_categories=true) %}

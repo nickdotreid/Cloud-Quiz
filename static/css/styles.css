@@ -73,7 +73,7 @@ br.cb{
 #head{
 	background:transparent url('../i/header-background.png') center bottom no-repeat;
 	margin:0px;
-	padding:0px;
+	padding:0px 0px 34px;
 	overflow:visible;
 	border:0px;
 	width:auto;
@@ -116,6 +116,22 @@ br.cb{
 	width:70px;
 	height:90px;
 	margin:0px 7px 0px 0px;
+}
+
+#head #register{
+	display:block;
+	float:right;
+	width:250px;
+}
+
+#head #register h3{
+	margin:0px 0px 7px;
+}
+
+#head #register p{
+	font-size:0.9em;
+	line-height:1em;
+	margin:0px 5px 5px;
 }
 
 .roadtoaids.logo{
