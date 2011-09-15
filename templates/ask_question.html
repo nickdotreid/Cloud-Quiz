@@ -11,19 +11,17 @@
 {% else %}
 <form id="ask_question" class="question" action="/ask_question" method="POST">
 	<h2>Ask a Question!</h2>
-	<div class="column small info">
+	<div class="info">
 		<p>Do you have any questions about HIV and your community?</p>
 		<p>Ask it here and have your question answered by local, state, and federal leaders at <a href="http://roadtoaids2012.org/cities/sanfrancisco.htm">San Francisco's Road To AIDS 2012 Town Hall</a> meeting September 30 at City Hall.</p>
 	</div>
-	<div class="column">
-		<label for="question-text">Your Question</label>
-		<textarea id="question-text" class="required" name="text" ></textarea>
-		{% if not success and errors and 'text' in errors %}
-		<label for="question-text" class="error">{{errors['text']}}</label>
-		{% endif %}
-		<label for="question-text" class="note limit">(<span class="number">500</span> Character Limit)</label>
-		<input type="text" name="honeypot" value="" style="display:none;" />
-		<input type="submit" class="button" value="Just Ask" />
-	</div>
+	<label for="question-text">Your Question</label>
+	<textarea id="question-text" class="required" name="text" ></textarea>
+	{% if not success and errors and 'text' in errors %}
+	<label for="question-text" class="error">{{errors['text']}}</label>
+	{% endif %}
+	<label for="question-text" class="note limit">(<span class="number">500</span> Character Limit)</label>
+	<input type="text" name="honeypot" value="" style="display:none;" />
+	<input type="submit" class="button" value="Just Ask" />
 </form>
 {% endif %}

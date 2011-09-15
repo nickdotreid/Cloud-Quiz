@@ -2,7 +2,7 @@ body{
 	font-family:georgia,times,serif;
 	font-size:14px;
 	color:#444;
-	background:#c5d8db top center repeat-y;
+	background:#FFF top center repeat-y;
 }
 
 br.cb{
@@ -10,11 +10,11 @@ br.cb{
 }
 
 .wrapper{
-	width:891px;
+	width:890px;
 	margin:0px auto 20px;
 	display:block;
 	position:relative;
-	background-color:#FFF;
+	background-color:transparent;
 	padding:15px 0px 0px;
 	overflow:visible;
 }
@@ -35,27 +35,15 @@ br.cb{
 }
 
 .column{
-	width:500px;
-	float:left;
-	margin:0px 0px 0px 25px;
-}
-.column:first-child{
-	margin:0px;
-}
-
-.column .column{
 	display:block;
 	float:left;
 	width:240px;
 	margin-left:12px;
 }
-.column .column:first-child{
+.column:first-child{
 	margin-left:0px;
 }
 
-.column.small{
-	width:230px;
-}
 
 .question{
 	clear:both;
@@ -66,11 +54,8 @@ br.cb{
 	padding:7px;
 	margin:0px;
 }
-.question.odd .column.small{
+.question.odd .info{
 	float:right;
-}
-.question.odd .column{
-	margin:0px;
 }
 
 #head{
