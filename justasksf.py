@@ -54,6 +54,12 @@ def ask_question():
 			answer.question = question
 			session['questions']['ask']['success'] = True
 			session['questions']['ask']['form'] = request.form
+			if len(request.form['name'])>0 and session['email'] is not None:
+				user = create_user(session['email'])
+				if request.form == user.name:
+					answer.user = user
+				else:
+					session['email'] = None
 			db.session.add(answer)
 			db.session.commit()
 			save_answer(answer)

@@ -26,6 +26,10 @@
 		<label for="question-text" class="error">{{errors['text']}}</label>
 		{% endif %}
 		<label for="question-text" class="note limit">(<span class="number">500</span> Character Limit)</label>
+		
+		<label for="question-name">Your Name <span class="note">(optional)</span></label>
+		<input type="text" id="question-name" name="name" />
+		
 		<input type="text" name="honeypot" value="" style="display:none;" />
 		<input type="submit" class="button" value="Just Ask" />
 	</form>
