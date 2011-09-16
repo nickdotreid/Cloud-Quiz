@@ -338,3 +338,32 @@ input.button:hover,.button:hover,.button.hover{
 	    rgb(255,255,255) 84%
 	);
 }
+
+#flyer{
+	margin:0px 25px 0px;
+}
+#flyer h2,h3{
+	margin:0px 0px 7px;
+}
+#flyer h3{
+	margin-bottom:4px;
+}
+#flyer p{
+	margin:0px 15px 4px;
+	padding:0px;
+}
+#flyer a{
+	font-weight:bold;
+}
+
+#flyer ul.presenters{
+	
+}
+#flyer ul.presenters li{
+	list-style-type:none;
+	margin:0px 0px 4px;
+}
+#flyer ul.presenters li a,#flyer .time{
+	display:block;
+	font-weight:bold;
+}

@@ -19,6 +19,10 @@ def index():
 	start_session()
 	questions = session['questions']
 	return render_template('index.html',questions=questions)
+	
+@app.route("/townhall")
+def townhall_flyer():
+	return render_template('townhall_flyer.html')
 
 @app.route("/topic_question",methods=['GET','POST'])
 def topic_question():
@@ -82,8 +86,8 @@ def redirect_to_register():
 	
 def start_session():
 	session['questions'] = {
-		'topic':{'template':'topic_question.html'},
 		'ask':{'template':'ask_question.html'},
+		'topic':{'template':'topic_question.html'},
 		'email':{'template':'email_question.html'}
 		}
 	session['answers'] = []
