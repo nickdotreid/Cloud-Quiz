@@ -29,10 +29,12 @@ def topic_question():
 	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'topic' in request.form:
 		topic = request.form.getlist('topic')
 		for value in topic:
-			question = Question(value)
-			db.session.add(question)
+			question = get_question("topic quesiton")
+			answer = Answer(value)
+			answer.question = question
+			db.session.add(answer)
 			db.session.commit()
-			save_answer(question)
+			save_answer(answer)
 		session['questions']['topic']['success'] = True
 	else:
 		errors = {'topics[]':'Please select at least one interest'}
@@ -47,12 +49,14 @@ def ask_question():
 		success = False
 		errors = {}
 		if len(request.form['text']) > 0 and len(request.form['text']) < 550:
-			question = Question(request.form['text'])
+			question = get_question("ask question")
+			answer = Answer(request.form['text'])
+			answer.question = question
 			session['questions']['ask']['success'] = True
 			session['questions']['ask']['form'] = request.form
-			db.session.add(question)
+			db.session.add(answer)
 			db.session.commit()
-			save_answer(question)
+			save_answer(answer)
 			success = True
 		else:
 			errors['text'] = 'Your question must be less than 500 characters'
@@ -92,6 +96,15 @@ def start_session():
 		}
 	session['answers'] = []
 	session['email'] = None
+
+def get_question(text):
+	question = Question.query.filter_by(text=text).first()
+	if question is not None:
+		return question
+	question = Question(text)
+	db.session.add(question)
+	db.session.commit()
+	return question
 	
 def save_answer(answer=None):
 	user = None
@@ -101,9 +114,9 @@ def save_answer(answer=None):
 	if session['email'] is not None:
 		user = create_user(session['email'])
 	for answer_id in session['answers']:
-		question = Question.query.filter_by(id=answer_id).first()
-		if question is not None and user is not None:
-			user.questions.append(question)
+		answer = Answer.query.filter_by(id=answer_id).first()
+		if answer is not None and user is not None:
+			user.answers.append(answer)
 	db.session.commit()
 		
 def create_user(email = None,name = None):
