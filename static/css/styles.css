@@ -120,8 +120,11 @@ br.cb{
 
 #head #register{
 	display:block;
-	float:right;
-	width:250px;
+	position:absolute;
+	right:40px;
+	bottom:47px;
+	width:215px;
+	text-align:right;
 }
 
 #head #register h3{
@@ -131,7 +134,7 @@ br.cb{
 #head #register p{
 	font-size:0.9em;
 	line-height:1em;
-	margin:0px 5px 5px;
+	margin:0px 0px 5px;
 }
 
 .roadtoaids.logo{
