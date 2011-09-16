@@ -60,6 +60,10 @@ def ask_question():
 					answer.user = user
 				else:
 					session['email'] = None
+					session['name'] = request.form['name']
+					user = User(None,request.form['name'])
+					db.session.add(user)
+					answer.user = user
 			db.session.add(answer)
 			db.session.commit()
 			save_answer(answer)
@@ -102,6 +106,7 @@ def start_session():
 		}
 	session['answers'] = []
 	session['email'] = None
+	session['name'] = None
 
 def get_question(text):
 	question = Question.query.filter_by(text=text).first()
