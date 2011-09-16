@@ -9,6 +9,10 @@ br.cb{
 	clear:both;
 }
 
+a,a:visited{
+	color:#00F;
+}
+
 .wrapper{
 	width:890px;
 	margin:0px auto 20px;
