@@ -28,8 +28,8 @@ def townhall_flyer():
 def topic_question():
 	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'topic' in request.form:
 		topic = request.form.getlist('topic')
+		question = get_question("topic quesiton")
 		for value in topic:
-			question = get_question("topic quesiton")
 			answer = Answer(value)
 			answer.question = question
 			db.session.add(answer)
