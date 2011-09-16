@@ -125,10 +125,11 @@ a,a:visited{
 #head #register{
 	display:block;
 	position:absolute;
-	right:40px;
-	bottom:47px;
-	width:215px;
+	right:50px;
+	bottom:45px;
+	width:250px;
 	text-align:right;
+	font-size:1.1em;
 }
 
 #head #register h3{
@@ -218,12 +219,17 @@ a,a:visited{
 }
 
 #share{
-	padding:7px 75px 7px;
-	width:670px;
+	position:absolute;
+	bottom:0px;
+	right:30px;
+	width:320px;
 }
 
-#share h2{
-	margin:7px 0px 0px;
+#share h3{
+	margin:5px 10px 0px 0px;
+	font-weight:normal;
+	float:left;
+	display:block;
 }
 #share p{
 	margin:3px 0px 0px;
@@ -250,6 +256,7 @@ a,a:visited{
 
 a.button.register{
 	margin:3px 0px;
+	float:right;
 }
 
 form input,form label, form textarea{
