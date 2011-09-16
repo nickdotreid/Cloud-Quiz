@@ -82,7 +82,11 @@ def capture_email():
 		errors = {}
 		if 'email' in request.form and len(request.form['email'])>0:
 			session['email'] = request.form['email']
-			create_user(request.form['email'],request.form['name'])
+			if len(request.form['name'])>0 and session['name'] is not None and request.form['name'] == session['name']:
+				user = User.query.filter_by(name=session['name']).first()
+				user.email = request.form('email')
+			else:
+				create_user(request.form['email'],request.form['name'])
 			save_answer()
 			sub = Subscriber()
 			sub.add(campaign_monitor_list_id,request.form['email'],request.form['name'],[],True)
