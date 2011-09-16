@@ -56,7 +56,7 @@ def ask_question():
 			session['questions']['ask']['form'] = request.form
 			if len(request.form['name'])>0 and session['email'] is not None:
 				user = create_user(session['email'])
-				if request.form == user.name:
+				if request.form['name'].upper() == user.name.upper():
 					answer.user = user
 				else:
 					session['email'] = None
@@ -82,7 +82,7 @@ def capture_email():
 		errors = {}
 		if 'email' in request.form and len(request.form['email'])>0:
 			session['email'] = request.form['email']
-			if len(request.form['name'])>0 and session['name'] is not None and request.form['name'] == session['name']:
+			if len(request.form['name'])>0 and session['name'] is not None and request.form['name'].upper() == session['name'].upper():
 				user = User.query.filter_by(name=session['name']).first()
 				user.email = request.form('email')
 			else:
