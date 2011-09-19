@@ -227,9 +227,9 @@ a,a:visited{
 
 #share{
 	position:absolute;
-	bottom:0px;
+	bottom:20px;
 	right:30px;
-	width:320px;
+	padding:0px 95px 0px 0px;
 }
 
 #share h3{
@@ -237,11 +237,16 @@ a,a:visited{
 	font-weight:normal;
 	float:left;
 	display:block;
+	font-size:1em;
 }
 #share p{
 	margin:3px 0px 0px;
 }
-
+#share .share_buttons{
+	position: absolute;
+	top: 0px;
+	right: 15px;
+}
 .share_buttons .button,.share_buttons .button:hover{
 	width:32px;
 	height:32px;
