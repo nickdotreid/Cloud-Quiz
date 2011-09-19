@@ -55,7 +55,7 @@ a,a:visited{
 }
 .question .info{
 	background:transparent url('../i/info-blue.png') top right no-repeat;
-	padding:7px;
+	padding:14px 7px;
 	margin:0px;
 	position:absolute;
 	left:520px;
