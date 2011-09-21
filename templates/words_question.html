@@ -5,19 +5,19 @@
 </div>
 {% else %}
 <div id="words_question" class="question">
-	<h2>What Words Come To Mind When you Think About HIV/AIDS?</h2>
+	<h2>Think of Words About HIV/AIDS</h2>
 	<form action="/words_question" method="POST">
 		<legend>
 		<div class="info">
-			<p>Think of three meaningful words that come to mind when you think of HIV/AIDS.</p>
+			<p>Think of three words that resonate with you about HIV/AIDS in the past, present and future.</p>
 		</div>
 		</legend>
-		<label for="word_1">Word or Phrase</label>
-		<input id="word_1" type="text" name="answer" value="" />
-		<label for="word_2">Word or Phrase</label>
-		<input id="word_2" type="text" name="answer" value="" />
-		<label for="word_3">Word or Phrase</label>
-		<input id="word_3" type="text" name="answer" value="" />
+		<label for="past">Three words about HIV/AIDS in the <strong>past</strong> <span class="note">(Separate words with a comma)</span></label>
+		<input id="past" type="text" name="past" value="" />
+		<label for="present">Three words about HIV/AIDS in the <strong>present</strong> <span class="note">(Separate words with a comma)</span></label>
+		<input id="present" type="text" name="present" value="" />
+		<label for="future">Three words about HIV/AIDS in the <strong>future</strong> <span class="note">(Separate words with a comma)</span></label>
+		<input id="future" type="text" name="future" value="" />
 		<br class="cb" />
 		<input type="text" name="honeypot" value="" style="display:none;" />
 		<input class="button" type="submit" value="Submit Your Words" />
