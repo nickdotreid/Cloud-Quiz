@@ -1,0 +1,26 @@
+{% if success %}
+<div id="words_question" class="question {% if success %}success{% endif %}">
+	<h2>Your words have been added</h2>
+	<p>Your answers will help us tell you want you want to know. Please <a href="#email_question">sign up</a> below and we will keep you up to date. Also <a href="#share">tell your friends to just ask!</a></p>
+</div>
+{% else %}
+<div id="words_question" class="question">
+	<h2>What Words Come To Mind When you Think About HIV/AIDS?</h2>
+	<form action="/words_question" method="POST">
+		<legend>
+		<div class="info">
+			<p>Think of three meaningful words that come to mind when you think of HIV/AIDS.</p>
+		</div>
+		</legend>
+		<label for="word_1">Word or Phrase</label>
+		<input id="word_1" type="text" name="answer" value="" />
+		<label for="word_2">Word or Phrase</label>
+		<input id="word_2" type="text" name="answer" value="" />
+		<label for="word_3">Word or Phrase</label>
+		<input id="word_3" type="text" name="answer" value="" />
+		<br class="cb" />
+		<input type="text" name="honeypot" value="" style="display:none;" />
+		<input class="button" type="submit" value="Submit Your Words" />
+	</form>
+</div>
+{% endif %}

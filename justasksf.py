@@ -24,6 +24,23 @@ def index():
 def townhall_flyer():
 	return render_template('townhall_flyer.html')
 
+@app.route("/words_question",methods=['GET','POST'])
+def save_words():
+	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'question' in request.form and 'answer' in request.form:
+		question = get_question(request.form['question'])
+		answers = request.form.getlist('answer')
+		for value in answers:
+			answer = Answer(value)
+			answer.question = question
+			db.session.add(answer)
+			db.session.commit()
+			save_answer(answer)
+		session['questions']['words']['success'] = True
+	if request.method == "POST" and 'ajax' in request.form:
+		return render_template('words_question.html', success=True, form=request.form,errors={})
+	session['questions'] = session['questions']
+	return redirect('/#words_question')
+
 @app.route("/topic_question",methods=['GET','POST'])
 def topic_question():
 	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'topic' in request.form:
@@ -106,6 +123,7 @@ def start_session():
 	session['questions'] = {
 		'ask':{'template':'ask_question.html'},
 		'topic':{'template':'topic_question.html'},
+		'words':{'template':'words_question.html'},
 		'email':{'template':'email_question.html'}
 		}
 	session['answers'] = []
