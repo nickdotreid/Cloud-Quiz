@@ -1,6 +1,5 @@
 from flask import Flask, redirect, request, flash, render_template, session, jsonify, Blueprint
 from flaskext.sqlalchemy import SQLAlchemy
-from flaskext import admin
 import re
 
 from db_config import *
@@ -14,10 +13,6 @@ app.secret_key = secrect_key
 db = SQLAlchemy(app)
 
 from models import *
-
-admin_blueprint = admin.create_admin_blueprint((Question,Answer),db.session)
-
-app.register_blueprint(admin_blueprint, url_prefix='/admin')
 
 @app.route("/",methods=['GET','POST'])
 def index():
