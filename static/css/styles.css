@@ -13,6 +13,10 @@ a,a:visited{
 	color:#00F;
 }
 
+.justask{
+	font-style:italic;
+}
+
 .wrapper{
 	width:890px;
 	margin:0px auto 20px;
