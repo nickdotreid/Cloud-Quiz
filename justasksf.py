@@ -126,9 +126,6 @@ def start_session():
 	session['questions'] = {
 		'ask':{'template':'ask_question.html'},
 		'topic':{'template':'topic_question.html'},
-		'words_past':{'template':'words_past_question.html'},
-		'words_present':{'template':'words_present_question.html'},
-		'words_future':{'template':'words_future_question.html'},
 		'email':{'template':'email_question.html'}
 		}
 	session['answers'] = []
