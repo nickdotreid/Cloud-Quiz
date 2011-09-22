@@ -27,6 +27,8 @@ def townhall_flyer():
 @app.route("/words_question",methods=['GET','POST'])
 def save_words():
 	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'question' in request.form and len(request.form['question'])>0 and 'answer' in request.form:
+		if request.form['question'] not in session['questions']:
+			return redirect("/")
 		question = get_question(request.form['question'])
 		answers = request.form.getlist('answer')
 		for value in answers:
@@ -36,9 +38,9 @@ def save_words():
 				db.session.add(answer)
 				db.session.commit()
 				save_answer(answer)
-		session['questions']['words']['success'] = True
-	if request.method == "POST" and 'ajax' in request.form:
-		return render_template('words_question.html', success=True, form=request.form,errors={})
+		session['questions'][request.form['question']]['success'] = True
+		if request.method == "POST" and 'ajax' in request.form:
+			return render_template(session['questions'][request.form['question']]['template'], success=True, form=request.form,errors={})
 	session['questions'] = session['questions']
 	return redirect('/#words_question')
 
