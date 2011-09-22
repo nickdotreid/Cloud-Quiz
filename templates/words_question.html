@@ -1,7 +1,7 @@
 {% if success %}
 <div id="words_question" class="question {% if success %}success{% endif %}">
 	<h2>Your words have been added</h2>
-	<p>Your answers will help us tell you want you want to know. Please <a href="#email_question">sign up</a> below and we will keep you up to date. Also <a href="#share">tell your friends to just ask!</a></p>
+	<p>Your answers will be added to our word cloud. Please <a href="#email_question">sign up</a> below and we will tell you when our word cloud is online. Also <a href="#share">tell your friends to just ask!</a></p>
 </div>
 {% else %}
 <div id="words_question" class="question">
@@ -12,11 +12,11 @@
 			<p>Think of three words that resonate with you about HIV/AIDS in the past, present and future.</p>
 		</div>
 		</legend>
-		<label for="past">Three words about HIV/AIDS in the <strong>past</strong> <span class="note">(Separate words with a comma)</span></label>
+		<label for="past">3 words about HIV/AIDS in the <strong>past</strong> <span class="note">(Separate words with a comma)</span></label>
 		<input id="past" type="text" name="past" value="" />
-		<label for="present">Three words about HIV/AIDS in the <strong>present</strong> <span class="note">(Separate words with a comma)</span></label>
+		<label for="present">3 words about HIV/AIDS in the <strong>present</strong> <span class="note">(Separate words with a comma)</span></label>
 		<input id="present" type="text" name="present" value="" />
-		<label for="future">Three words about HIV/AIDS in the <strong>future</strong> <span class="note">(Separate words with a comma)</span></label>
+		<label for="future">3 words about HIV/AIDS in the <strong>future</strong> <span class="note">(Separate words with a comma)</span></label>
 		<input id="future" type="text" name="future" value="" />
 		<br class="cb" />
 		<input type="text" name="honeypot" value="" style="display:none;" />
