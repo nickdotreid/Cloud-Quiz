@@ -26,28 +26,16 @@ def townhall_flyer():
 
 @app.route("/words_question",methods=['GET','POST'])
 def save_words():
-	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1:
-		if 'past' in request.form and len(request.form['past']) < 1:
-			question = get_question('3 words past')
-			answer = Answer(request.form['past'])
-			answer.question = question
-			db.session.add(answer)
-			db.session.commit()
-			save_answer(answer)
-		if 'present' in request.form and len(request.form['present']) < 1:
-			question = get_question('3 words present')
-			answer = Answer(request.form['present'])
-			answer.question = question
-			db.session.add(answer)
-			db.session.commit()
-			save_answer(answer)
-		if 'future' in request.form and len(request.form['future']) < 1:
-			question = get_question('3 words future')
-			answer = Answer(request.form['future'])
-			answer.question = question
-			db.session.add(answer)
-			db.session.commit()
-			save_answer(answer)
+	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'question' in request.form and len(request.form['question'])>0 and 'answer' in request.form:
+		question = get_question(request.form['question'])
+		answers = request.form.getlist('answer')
+		for value in answers:
+			if len(value)>0:
+				answer = Answer(value)
+				answer.question = question
+				db.session.add(answer)
+				db.session.commit()
+				save_answer(answer)
 		session['questions']['words']['success'] = True
 	if request.method == "POST" and 'ajax' in request.form:
 		return render_template('words_question.html', success=True, form=request.form,errors={})
