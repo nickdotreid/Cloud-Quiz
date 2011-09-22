@@ -1,0 +1,24 @@
+{% if success %}
+<div id="past_words_question" class="question words {% if success %}success{% endif %}">
+	<h2>Your Words Have Been Added</h2>
+	<p>Your answers will be added to our word cloud of the past.</p>
+</div>
+{% else %}
+<div id="past_words_question" class="question words">
+	
+	<form action="/words_question" method="POST">
+		<legend>
+			<h2>Think Of Three Words About HIV in the <em>Past</em></h2>
+		</legend>
+		<label for="word1">Word or phrase about HIV in the past.</label>
+		<input id="word1" type="text" name="answer" value="" />
+		<label for="word1">Word or phrase about HIV in the past.</label>
+		<input id="word1" type="text" name="answer" value="" />
+		<label for="word1">Word or phrase about HIV in the past.</label>
+		<input id="word1" type="text" name="answer" value="" />
+		<input type="hidden" name="question" value="words_past" />
+		<input type="text" name="honeypot" value="" style="display:none;" />
+		<input class="button" type="submit" value="Add Your Words" />
+	</form>
+</div>
+{% endif %}

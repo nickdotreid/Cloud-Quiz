@@ -229,6 +229,36 @@ a,a:visited{
 	padding:0px;
 }
 
+.question.words{
+	overflow:hidden;
+}
+
+.question.words h2{
+	font-size:1.25em;
+}
+
+.question.words form{
+	padding:0px;
+}
+
+.question.words form label{
+	position:absolute;
+	top:0px;
+	left:3000px;
+}
+
+.question.words form input{
+	width:150px;
+	display:block;
+	float:left;
+	margin:0px 7px 3px 0px;
+}
+
+.question.words form input.button{
+	width:auto;
+	clear:none;
+}
+
 #share{
 	position:absolute;
 	bottom:20px;
