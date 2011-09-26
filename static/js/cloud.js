@@ -77,6 +77,8 @@ $(document).ready(function(){
 		                    return d.r + 'px'
 		                return (d.r * (2 + 0.7) / d.word.length) + 'px'
 		            });	// change text size
+	}).delegate(".question",'show_thankyou',function(event){
+		$(".graph").trigger("get");
 	});
 	
 	$("#content .graph").trigger("init").trigger("get");

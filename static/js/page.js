@@ -13,6 +13,7 @@ $(document).ready(function(){
 			type:form.attr("method"),
 			data:form.serialize(),
 			success:function(data){
+				form.trigger("show_thankyou");
 				form.parent(".question:first").after(data);
 				form.parent(".question:first").remove();
 			}
