@@ -50,7 +50,7 @@ $(document).ready(function(){
 		}))
 		
 		var node = bubbles.enter().append("svg:g")
-		.attr("class", "node")
+		.attr("class","node word")
 		.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
 		.attr('data-word',function(d){return d.word;})
 		.attr('data-value',function(d){return d.value;});
