@@ -23,6 +23,21 @@ def index():
 @app.route("/townhall")
 def townhall_flyer():
 	return render_template('townhall_flyer.html')
+	
+@app.route("/cloud")
+def cloud_map():
+	session['questions'] = {'words_future':{'template':'words_future_question.html'}}
+	return render_template('cloud_map.html', questions=session['questions'])
+	
+@app.route("/words")
+def get_words():
+	question = get_question('words_future')
+	answers = {}
+	for answer in question.answers.all():
+		if answer.text not in answers:
+			answers[answer.text] = 0
+		answers[answer.text] += 1
+	return jsonify(words=answers)
 
 @app.route("/words_question",methods=['GET','POST'])
 def save_words():
