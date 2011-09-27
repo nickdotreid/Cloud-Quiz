@@ -1,5 +1,19 @@
 $(document).ready(function(){
 	
+	$(".questions.list .title").click(function(){
+		question = $(this)
+		$(".graph").trigger("clear");
+		$.ajax({
+			url:"/words",
+			dataType:"json",
+			type:'POST',
+			data:{'question':question.data("question")},
+			success:function(json){
+				$(".graph").trigger({type:"update",words:json['words']});
+			}
+		})
+	})
+	
 	$("#content").delegate(".graph","init",function(event){
 		graph = $(this)
 		
