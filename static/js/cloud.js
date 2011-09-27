@@ -20,7 +20,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		$($(this).attr("href")).show();
 	})
-	setInterval('$(".questions.list .title.selected").trigger("get")',10000)
+	setInterval('$(".questions.list li.selected").trigger("get")',10000)
 	$("#content").delegate(".graph","init",function(event){
 		graph = $(this)
 		
