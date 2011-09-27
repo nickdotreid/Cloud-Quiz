@@ -1,0 +1,21 @@
+
+.questions.list{
+	
+}
+
+.questions.list h2.title{
+	display:block;
+	float:left;
+	clear:none;
+	width:170px;
+	background-color:#cad4db;
+	color:#FFF;
+	font-size:2em;
+	padding:5px;
+	margin:0px;
+	text-align:center;
+}
+
+.questions.list .question{
+	display:none;
+}
