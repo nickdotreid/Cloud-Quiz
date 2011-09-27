@@ -1,10 +1,12 @@
 $(document).ready(function(){
 	
-	$(".questions.list .title").click(function(){
+	$(".questions .title").click(function(){
 		$(".graph").trigger("clear");
-		$(".questions.list .title").removeClass("selected");
-		$(this).addClass('selected').trigger("get");
-	}).bind("get",function(event){
+		$(".questions li").removeClass("selected");
+		$(".questions .question").hide();
+		$(this).parent().addClass('selected').trigger("get");
+	});
+	$(".questions li").bind("get",function(event){
 		$.ajax({
 			url:"/words",
 			dataType:"json",
@@ -16,7 +18,7 @@ $(document).ready(function(){
 		})
 	}).delegate("a","click",function(event){
 		event.preventDefault();
-		$(this).parent().next(".question").show();
+		$($(this).attr("href")).show();
 	})
 	setInterval('$(".questions.list .title.selected").trigger("get")',10000)
 	$("#content").delegate(".graph","init",function(event){

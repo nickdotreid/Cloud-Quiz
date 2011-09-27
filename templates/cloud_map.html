@@ -16,7 +16,18 @@
 
 
 {% block content %}
-<div class="questions list">
+<ul class="questions list">
+{% for key in questions %}
+{% set question = questions[key] %}
+	{% if question['title'] %}
+	<li data-question="{{key}}">
+		<span class="title">{{question['title']}}</span>
+		<a href="#{{key}}">Show Question</a>
+	</li>
+	{% endif %}
+{% endfor %}
+</ul>
+<div class="questions">
 {{ super() }}
 </div>
 <div class="graph"></div>

@@ -6,14 +6,6 @@
 {% set success = question['success'] %}
 {% set form = question['form'] %}
 {% set errors = question['errors'] %}
-
-{% if question['title'] %}
-<div data-question="{{key}}" class="title">
-	<h2>{{question['title']}}</h2>
-	<a href="#{{key}}">Show Question</a>
-</div>
-{% endif %}
-
 {% include question['template'] %}
 {% endfor %}
 {% endblock %}

@@ -1,35 +1,42 @@
 
-.questions.list{
+ul.questions{
 	width:600px;
 	margin:0px auto 5px;
+	padding:0px;
 }
 
-.questions.list .title{
+ul.questions li{
 	display:block;
 	float:left;
-	clear:none;
 	width:170px;
+}
+
+ul.questions .title{
+	clear:none;
+	display:block;
 	background-color:#6e056b;
 	color:#FFF;
 	padding:5px;
 	margin:0px;
+	font-weight:bold;
+	font-size:2em;
 	text-align:center;
 }
 
-.questions.list .title.selected{
+.questions.list .selected .title{
 	background-color:#FFF;
 	color:#6e056b;
 }
 
-.questions.list .title a{
+.questions.list li a{
 	display:none;
 }
-.questions.list .title.selected a{
+.questions.list li.selected a{
 	font-size:0.8em;
 	color:#00F;
 	display:block;
 }
 
-.questions.list .question{
+.questions .question{
 	display:none;
 }
