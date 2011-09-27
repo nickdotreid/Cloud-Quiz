@@ -33,14 +33,15 @@ def cloud_map():
 	}
 	return render_template('cloud_map.html', questions=session['questions'])
 	
-@app.route("/words")
+@app.route("/words",methods=['GET','POST'])
 def get_words():
-	question = get_question('words_future')
 	answers = {}
-	for answer in question.answers.all():
-		if answer.text not in answers:
-			answers[answer.text] = 0
-		answers[answer.text] += 1
+	if request.method == "POST" and 'question' in request.form:
+		question = get_question(request.form['question'])
+		for answer in question.answers.all():
+			if answer.text not in answers:
+				answers[answer.text] = 0
+			answers[answer.text] += 1
 	return jsonify(words=answers)
 
 @app.route("/words_question",methods=['GET','POST'])
