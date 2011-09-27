@@ -26,7 +26,11 @@ def townhall_flyer():
 	
 @app.route("/cloud")
 def cloud_map():
-	session['questions'] = {'words_future':{'template':'words_future_question.html'}}
+	session['questions'] = {
+	'words_past':{'title':'Past','template':'words_past_question.html'},
+	'words_present':{'title':'Present','template':'words_present_question.html'},
+	'words_future':{'title':'Future','template':'words_future_question.html'},
+	}
 	return render_template('cloud_map.html', questions=session['questions'])
 	
 @app.route("/words")
