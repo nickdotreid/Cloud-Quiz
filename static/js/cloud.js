@@ -14,8 +14,11 @@ $(document).ready(function(){
 				$(".graph").trigger({type:"update",words:json['words']});
 			}
 		})
+	}).delegate("a","click",function(event){
+		event.preventDefault();
+		$(this).parent().next(".question").show();
 	})
-	
+	setInterval('$(".questions.list .title.selected").trigger("get")',10000)
 	$("#content").delegate(".graph","init",function(event){
 		graph = $(this)
 		
@@ -66,6 +69,8 @@ $(document).ready(function(){
 			return !d.children; 
 		}))
 		
+		bubbles.exit().transition().duration(400).style("opacity",0).remove();
+		
 		var node = bubbles.enter().append("svg:g")
 		.attr("class","node word")
 		.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
@@ -77,7 +82,7 @@ $(document).ready(function(){
 		.text(function(d) { 
 		return d.word + ": " + graph.data("format")(d.value); });
 		
-		node.append("svg:circle").attr("r", 0).style("fill", '#FF00CC');
+		node.append("svg:circle").attr("r", 0).style("fill", '#CCC');
 		
 		node.append("svg:text")
 		.attr("text-anchor", "middle")
@@ -88,7 +93,7 @@ $(document).ready(function(){
 	}).delegate(".graph","animate",function(event){
 		AllNodes = d3.select(this).selectAll('svg g:not(.to_remove)');
 		AllNodes.transition().duration(400).attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")" });
-		AllNodes.select('circle').transition().duration(800).attr('r',function(d){	return d.r;	})
+		AllNodes.select('circle').transition().duration(800).attr('r',function(d){	return d.r;	}).style('fill',function(d){ return pickColor(d.value); })
 		AllNodes.select('text').transition().duration(800).style('font-size', function(d){
 		                if (d.word.length < 3)
 		                    return d.r + 'px'
@@ -102,6 +107,16 @@ $(document).ready(function(){
 	
 });
 
+
+function pickColor(val){
+	if (val < 5)
+		return '#f9d65e'
+	if (val < 15)
+		return '#f39334'
+	if (val < 25)
+		return '#ed5b31'
+	return '#FF3333'
+}
 
 function parse_words(words){
 	parsed = [];
