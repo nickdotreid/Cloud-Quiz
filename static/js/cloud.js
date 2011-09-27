@@ -1,9 +1,19 @@
 $(document).ready(function(){
-	setInterval('$(".questions.list li.selected").trigger("get")',10000)
+	setInterval('$(".graph").trigger("get")',5000)
 	$(".no-svg #content").delegate(".graph","init",function(event){
-		alert("no svg")
-	})
-	
+		// do nothing
+	}).delegate(".graph","get",function(event){
+		question = $(this).data("question");
+		if(question){
+			$(this).trigger({type:"update",img:"/static/clouds/"+question+".png"});
+		}
+	}).delegate(".graph","clear",function(event){
+			$(this).fadeOut().html("");
+	}).delegate(".graph","update",function(event){
+		graph = $(this)
+		graph.html("").append('<img src="'+event.img+'" />').fadeIn();
+	});
+
 	$(".svg #content").delegate(".graph","init",function(event){
 		graph = $(this)
 		
@@ -31,10 +41,18 @@ $(document).ready(function(){
 	}).delegate(".graph","clear",function(event){
 		$("svg g").remove();
 	}).delegate(".graph","get",function(event){
-		graph = $(this)
-		d3.json("/words", function(json) {
-			graph.trigger({type:"update",words:json['words']});
-		});
+		question = $(this).data("question");
+		if(question){
+			$.ajax({
+				url:"/words",
+				dataType:"json",
+				type:'POST',
+				data:{'question':question},
+				success:function(json){
+					$(".graph").trigger({type:"update",words:json['words']});
+				}
+			});
+		}
 	}).delegate(".graph","update",function(event){
 		graph = $(this)
 		words = event.words
@@ -86,8 +104,7 @@ $(document).ready(function(){
 	}).delegate(".question",'show_thankyou',function(event){
 		$(".graph").trigger("get");
 	});
-	
-	$("#content .graph").trigger("init").trigger("get");
+
 	
 });
 

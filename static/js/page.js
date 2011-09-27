@@ -43,15 +43,7 @@ $(document).ready(function(){
 		$(this).parent().addClass('selected').trigger("get");
 	});
 	$("#head .list li").bind("get",function(event){
-		$.ajax({
-			url:"/words",
-			dataType:"json",
-			type:'POST',
-			data:{'question':$(this).data("question")},
-			success:function(json){
-				$(".graph").trigger({type:"update",words:json['words']});
-			}
-		})
+		$(".graph").data("question",$(this).data("question")).trigger("get");
 	}).delegate("a","click",function(event){
 		event.preventDefault();
 		$($(this).attr("href")).show();
