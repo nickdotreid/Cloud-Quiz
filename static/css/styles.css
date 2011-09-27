@@ -242,7 +242,7 @@ a,a:visited{
 .question.words form label{
 	position:absolute;
 	top:0px;
-	left:3000px;
+	left:-3000px;
 }
 
 .question.words form input{
