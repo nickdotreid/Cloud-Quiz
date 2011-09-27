@@ -7,6 +7,8 @@ from db_config import *
 from createsend import CreateSend, Subscriber
 CreateSend.api_key = campaign_monitor_api_key
 
+from twilio.rest import TwilioRestClient
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 app.secret_key = secrect_key
@@ -23,6 +25,38 @@ def index():
 @app.route("/townhall")
 def townhall_flyer():
 	return render_template('townhall_flyer.html')
+	
+@app.route("/sms",methods=['GET','POST'])
+def twilio_connect():
+	number = False
+	message = False
+	if request.method == "POST" and 'From' in request.form:
+		number = request.form['From']
+		message = 'Add your words about HIV.  Type "past", "present" or "future" followed by your words. ex "past mad sad bad".'
+		if 'Body' in request.form and request.form['Body'] != '':
+			words = request.form['Body'].split(' ')
+			if len(words) > 1:
+				question = False
+				words.reverse()
+				term = words.pop()
+				if term == "past":
+					question = get_question("words_past")
+				if term == "present":
+					question = get_question("words_present")
+				if term == "future":
+					question = get_question("words_future")
+				if question:
+					for word in words:
+						answer = Answer(word)
+						answer.question = question
+						db.session.add(answer)
+					db.session.commit()
+	if number and message:
+		client = TwilioRestClient(twilio_account_sid, twilio_auth_token)
+		message = client.sms.messages.create(to=number,
+		                                     from_="+14157023723",
+		                                     body=message)
+	return render_template('sms_form.html')
 	
 @app.route("/cloud")
 def cloud_map():
