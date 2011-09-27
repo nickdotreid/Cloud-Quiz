@@ -1,12 +1,12 @@
 $(document).ready(function(){
 	
-	$(".questions .title").click(function(){
+	$("#head .list a").click(function(){
 		$(".graph").trigger("clear");
 		$(".questions li").removeClass("selected");
 		$(".questions .question").hide();
 		$(this).parent().addClass('selected').trigger("get");
 	});
-	$(".questions li").bind("get",function(event){
+	$("#head .list li").bind("get",function(event){
 		$.ajax({
 			url:"/words",
 			dataType:"json",
@@ -20,6 +20,8 @@ $(document).ready(function(){
 		event.preventDefault();
 		$($(this).attr("href")).show();
 	})
+	$(".questions .question").hide();
+	$("#head .questions a:first").click()
 	setInterval('$(".questions.list li.selected").trigger("get")',10000)
 	$("#content").delegate(".graph","init",function(event){
 		graph = $(this)

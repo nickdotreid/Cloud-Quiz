@@ -2,7 +2,7 @@ body{
 	font-family:georgia,times,serif;
 	font-size:15px;
 	color:#444;
-	background:#FFF top center repeat-y;
+	background:#FFF top center url("../i/body-background.gif");
 }
 
 br.cb{
@@ -19,10 +19,10 @@ a,a:visited{
 
 .wrapper{
 	width:890px;
-	margin:0px auto 20px;
+	margin:0px auto;
 	display:block;
 	position:relative;
-	background-color:transparent;
+	background:transparent url('../i/wrapper-background.png') top center repeat-y;
 	padding:15px 0px 0px;
 	overflow:visible;
 }
@@ -34,8 +34,6 @@ a,a:visited{
 	padding:0px;
 	clear:both;
 	position:relative;
-	border-left:#f29d49 4px solid;
-	border-right:#f29d49 4px solid;
 }
 .section h2{
 	margin:13px 0px;
@@ -58,7 +56,7 @@ a,a:visited{
 	padding:7px 25px 12px;
 }
 .question .info{
-	background:transparent url('../i/info-blue.png') top right no-repeat;
+	background:#ccd6dc top right no-repeat;
 	padding:14px 7px;
 	margin:0px;
 	position:absolute;
@@ -66,7 +64,6 @@ a,a:visited{
 	width:300px;
 }
 .question.odd .info{
-	background:transparent url('../i/info-blue-odd.png') top left no-repeat;
 	left:-64px;
 }
 .question form{
@@ -80,12 +77,12 @@ a,a:visited{
 
 #head{
 	background:transparent url('../i/header-background.png') center bottom no-repeat;
-	margin:0px;
-	padding:0px 0px 32px;
+	margin:0px 0px 32px;
+	padding:0px;
 	overflow:visible;
 	border:0px;
 	width:auto;
-	min-height:165px;
+	min-height:140px;
 }
 
 #head .site_title{
@@ -98,7 +95,7 @@ a,a:visited{
 	width:299px;
 	height:161px;
 	position:absolute;
-	bottom:0px;
+	bottom:-32px;
 	left:55px;
 	overflow:hidden;
 	text-indent:700em;
@@ -130,7 +127,8 @@ a,a:visited{
 	display:block;
 	position:absolute;
 	right:50px;
-	bottom:45px;
+	bottom:0px;
+	padding:0px 0px 2px;
 	width:250px;
 	text-align:right;
 	font-size:1.1em;
@@ -177,7 +175,7 @@ a,a:visited{
 
 #foot{
 	clear:both;
-	background:transparent url('../i/foot-top.png') center top no-repeat;
+	background:transparent center top no-repeat;
 	padding:50px 0px;
 	font-size:0.8em;
 	border:0px;
@@ -261,7 +259,7 @@ a,a:visited{
 
 #share{
 	position:absolute;
-	bottom:20px;
+	bottom:-1.5em;
 	right:30px;
 	padding:0px 95px 0px 0px;
 }
@@ -431,4 +429,35 @@ input.button:hover,.button:hover,.button.hover{
 #flyer ul.presenters li a,#flyer .time{
 	display:block;
 	font-weight:bold;
+}
+
+#head ul.list{
+	margin:0px auto 5px;
+	padding:0px 30px;
+	position:absolute;
+	bottom:0px;
+	right:0px;
+}
+
+#head ul.list li{
+	clear:none;
+	display:block;
+	color:#FFF;
+	padding:5px;
+	margin:0px;
+	font-weight:bold;
+	font-size:2em;
+	text-align:center;
+	float:left;
+}
+#head ul.list li a,#head ul.list li a:visited{
+	color:#FFF;
+}
+#head ul.list li a:hover{
+	color:#FFF;
+}
+
+.questions.list .selected .title{
+	background-color:#FFF;
+	color:#6e056b;
 }

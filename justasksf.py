@@ -75,7 +75,7 @@ def get_words():
 		question = get_question(request.form['question'])
 		for answer in question.answers.all():
 			if answer.text not in answers:
-				answers[answer.text] = 0
+				answers[answer.text] = 1
 			answers[answer.text] += 1
 	return jsonify(words=answers)
 
