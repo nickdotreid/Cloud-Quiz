@@ -42,6 +42,11 @@ $(document).ready(function(){
 		$("svg g").remove();
 	}).delegate(".graph","get",function(event){
 		question = $(this).data("question");
+		
+		if(!$(this).data("vis")){
+			$(this).trigger("init");
+		}
+		
 		if(question){
 			$.ajax({
 				url:"/words",
