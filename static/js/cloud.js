@@ -1,13 +1,15 @@
 $(document).ready(function(){
 	
 	$(".questions.list .title").click(function(){
-		question = $(this)
 		$(".graph").trigger("clear");
+		$(".questions.list .title").removeClass("selected");
+		$(this).addClass('selected').trigger("get");
+	}).bind("get",function(event){
 		$.ajax({
 			url:"/words",
 			dataType:"json",
 			type:'POST',
-			data:{'question':question.data("question")},
+			data:{'question':$(this).data("question")},
 			success:function(json){
 				$(".graph").trigger({type:"update",words:json['words']});
 			}
@@ -39,7 +41,8 @@ $(document).ready(function(){
 		graph.data("format",format);
 		graph.data("fill",fill);
 	}).delegate(".graph","clear",function(event){
-		$("svg g",$(this)).remove();
+		$("svg g").remove();
+//		d3.selectAll("svg g").transition().duration(200).style("opacity",0).remove();
 	}).delegate(".graph","get",function(event){
 		graph = $(this)
 		d3.json("/words", function(json) {
@@ -83,7 +86,7 @@ $(document).ready(function(){
 		
 		graph.trigger("animate")
 	}).delegate(".graph","animate",function(event){
-		AllNodes = d3.select(this).selectAll('svg g');
+		AllNodes = d3.select(this).selectAll('svg g:not(.to_remove)');
 		AllNodes.transition().duration(400).attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")" });
 		AllNodes.select('circle').transition().duration(800).attr('r',function(d){	return d.r;	})
 		AllNodes.select('text').transition().duration(800).style('font-size', function(d){
