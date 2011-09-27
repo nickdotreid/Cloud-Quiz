@@ -101,7 +101,12 @@ $(document).ready(function(){
 		AllNodes = d3.select(this).selectAll('svg g:not(.to_remove)');
 		AllNodes.transition().duration(400).attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")" });
 		AllNodes.select('circle').transition().duration(800).attr('r',function(d){	return d.r;	}).style('fill',function(d){ return pickColor(d.value); })
-		AllNodes.select('text').transition().duration(800).style('font-size', function(d){
+		AllNodes.select('text').transition().duration(800).style('font-color',function(d){
+			if(d.value < 25){
+				return "#000";
+			}
+			return "#FFF";
+		}).style('font-size', function(d){
 		                if (d.word.length < 3)
 		                    return d.r + 'px'
 		                return (d.r * (2 + 0.7) / d.word.length) + 'px'
@@ -116,12 +121,12 @@ $(document).ready(function(){
 
 function pickColor(val){
 	if (val < 5)
-		return '#f9d65e'
+		return '#f2f2f2'
 	if (val < 15)
-		return '#f39334'
+		return '#f2cbff'
 	if (val < 25)
-		return '#ed5b31'
-	return '#FF3333'
+		return '#e597ff'
+	return '#7a3891'
 }
 
 function parse_words(words){
