@@ -4,22 +4,30 @@
 	margin:0px auto 5px;
 }
 
-.questions.list h2.title{
+.questions.list .title{
 	display:block;
 	float:left;
 	clear:none;
 	width:170px;
 	background-color:#6e056b;
 	color:#FFF;
-	font-size:2em;
 	padding:5px;
 	margin:0px;
 	text-align:center;
 }
 
-.questions.list h2.title.selected{
+.questions.list .title.selected{
 	background-color:#FFF;
 	color:#6e056b;
+}
+
+.questions.list .title a{
+	display:none;
+}
+.questions.list .title.selected a{
+	font-size:0.8em;
+	color:#00F;
+	display:block;
 }
 
 .questions.list .question{

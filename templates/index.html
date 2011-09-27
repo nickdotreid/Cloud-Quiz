@@ -8,7 +8,10 @@
 {% set errors = question['errors'] %}
 
 {% if question['title'] %}
-<h2 data-question="{{key}}" class="title">{{question['title']}}</h2>
+<div data-question="{{key}}" class="title">
+	<h2>{{question['title']}}</h2>
+	<a href="#{{key}}">Show Question</a>
+</div>
 {% endif %}
 
 {% include question['template'] %}
