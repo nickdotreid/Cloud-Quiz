@@ -26,11 +26,11 @@ def townhall_flyer():
 	
 @app.route("/cloud")
 def cloud_map():
-	session['questions'] = {
-	'words_past':{'title':'Past','template':'words_past_question.html'},
-	'words_present':{'title':'Present','template':'words_present_question.html'},
-	'words_future':{'title':'Future','template':'words_future_question.html'},
-	}
+	session['questions'] = [
+	{'key':'words_past','title':'Past','template':'words_past_question.html'},
+	{'key':'words_present','title':'Present','template':'words_present_question.html'},
+	{'key':'words_future','title':'Future','template':'words_future_question.html'},
+	]
 	return render_template('cloud_map.html', questions=session['questions'])
 	
 @app.route("/words",methods=['GET','POST'])
@@ -58,10 +58,9 @@ def save_words():
 				db.session.add(answer)
 				db.session.commit()
 				save_answer(answer)
-		session['questions'][request.form['question']]['success'] = True
 		if request.method == "POST" and 'ajax' in request.form:
 			return render_template(session['questions'][request.form['question']]['template'], success=True, form=request.form,errors={})
-	session['questions'] = session['questions']
+	update_session_question(request.form['question'],{'success':True})
 	return redirect('/#words_question')
 
 @app.route("/topic_question",methods=['GET','POST'])
@@ -75,25 +74,23 @@ def topic_question():
 			db.session.add(answer)
 			db.session.commit()
 			save_answer(answer)
-		session['questions']['topic']['success'] = True
 	else:
 		errors = {'topics[]':'Please select at least one interest'}
 	if request.method == "POST" and 'ajax' in request.form:
 		return render_template('topic_question.html',success=True,form=request.form,errors={})
-	session['questions'] = session['questions'] # why do i have to do this?
+	update_session_question('topic',{'success':True})
 	return redirect("/#topic_question")
 
 @app.route("/ask_question",methods=['GET','POST'])
 def ask_question():
+	success = False
+	errors = {}
 	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'text' in request.form:
-		success = False
-		errors = {}
 		if len(request.form['text']) > 0 and len(request.form['text']) < 550:
 			question = get_question("ask question")
 			answer = Answer(request.form['text'])
 			answer.question = question
-			session['questions']['ask']['success'] = True
-			session['questions']['ask']['form'] = request.form
+			success = True
 			if len(request.form['name'])>0 and session['email'] is not None:
 				user = create_user(session['email'])
 				if request.form['name'].upper() == user.name.upper():
@@ -111,15 +108,15 @@ def ask_question():
 		else:
 			errors['text'] = 'Your question must be less than 500 characters'
 	if request.method == "POST" and 'ajax' in request.form:
-		return render_template('ask_question.html',success=True,form=request.form,errors={})
-	session['questions'] = session['questions'] # why do i have to do this?
+		return render_template('ask_question.html',success=success,form=request.form,errors=errors)
+	update_session_question('ask',{'success':success,'errors':errors})
 	return redirect("/#ask_question")
 	
 @app.route("/capture_email",methods=['GET','POST'])
 def capture_email():
+	success = False
+	errors = {}
 	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'email' in request.form:
-		success = False
-		errors = {}
 		if 'email' in request.form and len(request.form['email'])>0:
 			session['email'] = request.form['email']
 			if len(request.form['name'])>0 and session['name'] is not None and request.form['name'].upper() == session['name'].upper():
@@ -130,12 +127,12 @@ def capture_email():
 			save_answer()
 			sub = Subscriber()
 			sub.add(campaign_monitor_list_id,request.form['email'],request.form['name'],[],True)
-			session['questions']['email']['success'] = True
+			success = True
 		else:
 			errors['email'] = 'we need an email to keep in touch'
 	if request.method == "POST" and 'ajax' in request.form:
-		return render_template('email_question.html',success=True,form=request.form,errors={})
-	session['questions'] = session['questions'] # why do i have to do this?
+		return render_template('email_question.html',success=success,form=request.form,errors={})
+	update_session_question('email',{'success':success,'errors':errors})
 	return redirect("/#email_question")
 
 @app.route("/register")
@@ -143,11 +140,11 @@ def redirect_to_register():
 	return redirect("https://events.r20.constantcontact.com/register/eventReg?oeidk=a07e4q95wra4c76768d&oseq=")
 	
 def start_session():
-	session['questions'] = {
-		'ask':{'template':'ask_question.html'},
-		'topic':{'template':'topic_question.html'},
-		'email':{'template':'email_question.html'}
-		}
+	session['questions'] = [
+		{'key':'ask','template':'ask_question.html'},
+		{'key':'topic','template':'topic_question.html'},
+		{'key':'email','template':'email_question.html'}
+		]
 	session['answers'] = []
 	session['email'] = None
 	session['name'] = None
@@ -183,3 +180,10 @@ def create_user(email = None,name = None):
 	db.session.add(user)
 	db.session.commit()
 	return user
+	
+def update_session_question(qslug,data):
+	for question in session['questions']:
+		if question['key'] == qslug:
+			for key in data:
+				question[key] = data
+	session['questions'] = session['questions']

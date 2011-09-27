@@ -17,12 +17,11 @@
 
 {% block content %}
 <ul class="questions list">
-{% for key in questions %}
-{% set question = questions[key] %}
+{% for question in questions %}
 	{% if question['title'] %}
-	<li data-question="{{key}}">
+	<li data-question="{{question.key}}">
 		<span class="title">{{question['title']}}</span>
-		<a href="#{{key}}">Show Question</a>
+		<a href="#{{question.key}}">Show Question</a>
 	</li>
 	{% endif %}
 {% endfor %}

@@ -1,8 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-{% for key in questions %}
-{% set question = questions[key] %}
+{% for question in questions %}
 {% set success = question['success'] %}
 {% set form = question['form'] %}
 {% set errors = question['errors'] %}
