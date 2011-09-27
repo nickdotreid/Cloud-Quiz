@@ -1,29 +1,10 @@
 $(document).ready(function(){
-	
-	$("#head .list a").click(function(){
-		$(".graph").trigger("clear");
-		$(".questions li").removeClass("selected");
-		$(".questions .question").hide();
-		$(this).parent().addClass('selected').trigger("get");
-	});
-	$("#head .list li").bind("get",function(event){
-		$.ajax({
-			url:"/words",
-			dataType:"json",
-			type:'POST',
-			data:{'question':$(this).data("question")},
-			success:function(json){
-				$(".graph").trigger({type:"update",words:json['words']});
-			}
-		})
-	}).delegate("a","click",function(event){
-		event.preventDefault();
-		$($(this).attr("href")).show();
-	})
-	$(".questions .question").hide();
-	$("#head .questions a:first").click()
 	setInterval('$(".questions.list li.selected").trigger("get")',10000)
-	$("#content").delegate(".graph","init",function(event){
+	$(".no-svg #content").delegate(".graph","init",function(event){
+		alert("no svg")
+	})
+	
+	$(".svg #content").delegate(".graph","init",function(event){
 		graph = $(this)
 		
 		format = d3.format(",d"),
@@ -49,7 +30,6 @@ $(document).ready(function(){
 		graph.data("fill",fill);
 	}).delegate(".graph","clear",function(event){
 		$("svg g").remove();
-//		d3.selectAll("svg g").transition().duration(200).style("opacity",0).remove();
 	}).delegate(".graph","get",function(event){
 		graph = $(this)
 		d3.json("/words", function(json) {
