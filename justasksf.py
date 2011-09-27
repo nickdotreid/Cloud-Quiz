@@ -47,8 +47,6 @@ def get_words():
 @app.route("/words_question",methods=['GET','POST'])
 def save_words():
 	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'question' in request.form and len(request.form['question'])>0 and 'answer' in request.form:
-		if request.form['question'] not in session['questions']:
-			return redirect("/")
 		question = get_question(request.form['question'])
 		answers = request.form.getlist('answer')
 		for value in answers:
@@ -59,7 +57,8 @@ def save_words():
 				db.session.commit()
 				save_answer(answer)
 		if request.method == "POST" and 'ajax' in request.form:
-			return render_template(session['questions'][request.form['question']]['template'], success=True, form=request.form,errors={})
+			session_question = update_session_question(request.form['question'],{})
+			return render_template(session_question['template'], success=True, form=request.form,errors={})
 	update_session_question(request.form['question'],{'success':True})
 	return redirect('/#words_question')
 
@@ -186,4 +185,5 @@ def update_session_question(qslug,data):
 		if question['key'] == qslug:
 			for key in data:
 				question[key] = data
-	session['questions'] = session['questions']
+			session['questions'] = session['questions']
+			return question
