@@ -18,13 +18,16 @@ a,a:visited{
 }
 
 .wrapper{
-	width:890px;
+	width:850px;
 	margin:0px auto;
 	display:block;
 	position:relative;
-	background:transparent url('../i/wrapper-background.png') top center repeat-y;
 	padding:15px 0px 0px;
 	overflow:visible;
+	background:#FFF  url('../i/sfdph_logo_large.png') center bottom no-repeat;
+	-webkit-box-shadow: 0px 0px 10px 10px #FFF;
+	-moz-box-shadow: 0px 0px 10px 10px #FFF;
+	box-shadow: 0px 0px 10px 10px #FFF;
 }
 
 .section{
@@ -81,7 +84,9 @@ a,a:visited{
 	padding:0px;
 	overflow:visible;
 	border:0px;
-	width:auto;
+	width:900px;
+	position:relative;
+	right:25px;
 	min-height:140px;
 }
 
@@ -166,36 +171,33 @@ a,a:visited{
 
 #roadtoaids_foot{
 	clear:both;
-	padding:27px 75px 10px;
+	margin:27px 75px 10px;
+	padding:10px 5px 10px 30px;
+	width:auto;
 	font-size:0.8em;
 	height:90px;
-	width:670px;
-	margin:0px auto;
+	background:#FFF;
+	border:#555 1px solid;
 }
 
 #foot{
 	clear:both;
-	background:transparent center top no-repeat;
-	padding:50px 0px;
+	overflow:visible;
+	background:transparent;
+	padding:10px 0px;
 	font-size:0.8em;
 	border:0px;
 	width:828px;
 }
 #foot .help{
 	display:block;
-	text-align:center;
-	clear:both;
+	float:right;
+	text-align:right;
 }
 #foot .info{
 	display:block;
-	text-align:center;
-	margin:7px 0px;
-}
-#foot .seal{
 	float:left;
-	position:absolute;
-	left:170px;
-	top:55px;
+	text-align:left;
 }
 
 .alert{
