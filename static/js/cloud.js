@@ -23,6 +23,9 @@ $(document).ready(function(){
 		graph = $(this);
 		graph.html("");
 		graph.append("<img src='"+event['img']+"' />");
+		$('img',graph).load(function(){
+			$(this).parent().height($(this).height());
+		})
 	}).bind("update",function(event){
 		graph = $(this);
 		words = event.words;
