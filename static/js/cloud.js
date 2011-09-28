@@ -13,8 +13,16 @@ $(document).ready(function(){
 				height:graph.height(),
 			},
 			success:function(data){
-				$(".graph").trigger({type:"update",words:data['words']});
+				if(data['img']){
+					$(".graph").trigger({type:'blit',img:data['img']});
+				}else{
+					$(".graph").trigger({type:"update",words:data['words']});
+				}
 			}});
+	}).bind("blit",function(event){
+		graph = $(this);
+		graph.html("");
+		graph.append("<img src='"+event['img']+"' />");
 	}).bind("update",function(event){
 		graph = $(this);
 		words = event.words;
@@ -43,10 +51,10 @@ $(document).ready(function(){
 				$("a:last",graph).css(properties).fadeIn(500);
 			}
 		}
-		$(".tag.old",graph).animate({'opacity':0},{
+		$(".tag.old",graph).animate({'opacity':0,'left':graph.width()},{
 			'duration':500,
 			'complete':function(){
-				$(this).fadeOut();
+				$(this).remove();
 			}
 		})
 	});

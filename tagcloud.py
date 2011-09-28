@@ -23,7 +23,7 @@ def format_tags(tags,color=(0,0,0)):
 	for tag in tags:
 		new_tags.append({
 			'tag':tag,
-			'size':tags[tag]*15,
+			'size':tags[tag],
 			'color':color,
 		})
 	return new_tags

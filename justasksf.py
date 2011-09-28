@@ -69,6 +69,10 @@ def cloud_map():
 	return render_template('cloud_map.html', questions=session['questions'])
 	
 @app.route("/tagmap",methods=['GET','POST'])
+def get_cloud_image():
+	if request.method == "POST" and 'question' in request.form:
+		return jsonify(words={},img="/static/clouds/"+request.form['question']+".png");
+
 def get_cloud():
 	answers = {}
 	size = (800,800)
