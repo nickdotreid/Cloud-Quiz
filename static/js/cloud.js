@@ -10,7 +10,7 @@ $(document).ready(function(){
 			data:{
 				question:graph.data("question"),
 				width:graph.width(),
-				height:graph.height(),
+				height:graph.height()
 			},
 			success:function(data){
 				if(data['img']){
@@ -39,7 +39,7 @@ $(document).ready(function(){
 				'width':word['width']+'px',
 				'height':word['height']+'px',
 				'font-size':word['size']+'px',
-				'opacity':1,
+				'opacity':1
 			}
 			found = false;
 			for(var i=0;i<existing.length;i++){
