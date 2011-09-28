@@ -78,6 +78,29 @@ def get_words():
 				answers[answer.text] = 1
 			answers[answer.text] += 1
 	return jsonify(words=answers)
+	
+@app.route("/tagmap",methods=['GET','POST'])
+def get_cloud():
+	answers = {}
+	size = (800,800)
+	question = get_question("words_past")
+	if request.method == "POST" and 'question' in request.form:
+		
+		if 'width' in request.form and 'height' in request.form:
+			size = (request.form['width'],request.form['height'])
+		question = get_question(request.form['question'])
+	for answer in question.answers.all():
+		if answer.text not in answers:
+			answers[answer.text] = 1
+		answers[answer.text] += 1
+	import tagcloud
+	import sys
+	sys.path.append(tagcloud.path_to_pytagcloud)
+	import pytagcloud
+	
+	tags = tagcloud.format_tags(answers)
+	cloud = pytagcloud.create_html_data(tags,size)
+	return cloud[1]
 
 @app.route("/words_question",methods=['GET','POST'])
 def save_words():
