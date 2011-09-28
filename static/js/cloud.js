@@ -33,7 +33,7 @@ $(document).ready(function(){
 				word.removeClass("old").animate(properties,{duration:'500'});
 			}else{
 				graph.append('<a class="tag" data-tag="'+word['tag']+'" href="#">'+word['tag']+'</a>');
-				$("a:last",graph).css(properties)
+				$("a:last",graph).css(properties).fadeIn(500);
 			}
 			$(".tag.old").animate({'opacity':0},{
 				'duration':500,
