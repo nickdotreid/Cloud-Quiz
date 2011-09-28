@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	setInterval('$(".graph").trigger("get")',30000)
+	setInterval('$(".graph").trigger("get")',60000)
 	
 	$(".graph").bind("get",function(event){
 		graph = $(this);
@@ -19,6 +19,7 @@ $(document).ready(function(){
 		graph = $(this);
 		words = event.words;
 		$(".tag",graph).addClass("old");
+		existing = $(".tag.old",graph);
 		for(index in words){
 			word = words[index]
 			properties = {
@@ -27,21 +28,27 @@ $(document).ready(function(){
 				'width':word['width']+'px',
 				'height':word['height']+'px',
 				'font-size':word['size']+'px',
+				'opacity':1,
 			}
-			if($(".tag:[data-tag="+word['tag']+"]").length>0){
-				word = $(".tag:[data-tag='"+word['tag']+"']");
-				word.removeClass("old").animate(properties,{duration:'500'});
-			}else{
+			found = false;
+			for(var i=0;i<existing.length;i++){
+				if(existing.data("tag") == word['tag'] && found){
+					found = true;
+					word = $(existing[i]);
+					word.removeClass("old").animate(properties,{duration:'500'});
+				}
+			}
+			if(!found){
 				graph.append('<a class="tag" data-tag="'+word['tag']+'" href="#">'+word['tag']+'</a>');
 				$("a:last",graph).css(properties).fadeIn(500);
 			}
-			$(".tag.old").animate({'opacity':0},{
-				'duration':500,
-				'complete':function(){
-					$(this).remove();
-				}
-			})
 		}
+		$(".tag.old",graph).animate({'opacity':0},{
+			'duration':500,
+			'complete':function(){
+				$(this).fadeOut();
+			}
+		})
 	});
 
 	
