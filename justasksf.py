@@ -70,8 +70,14 @@ def get_words_json():
 				answers[answer.text] = 1
 			answers[answer.text] += 1
 		for answer in answers:
-			tags.append({'text':answer,'weight':answers[answer]})
+			tags.append({'text':fancify_word(answer),'weight':answers[answer]})
 	return jsonify(words=tags)
+
+def fancify_word(word):
+	for letter in word:
+		if letter.isupper():
+			return word
+	return word.capitalize()
 	
 @app.route("/cloud")
 def cloud_map():
