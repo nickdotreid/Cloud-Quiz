@@ -64,6 +64,9 @@ def get_words_json():
 	tags = []
 	if request.method == "POST" and 'question' in request.form:
 		question = get_question(request.form['question'])
+		badwords = {};
+		for word in BadWord.query.all():
+			badwords[word.text] = 1
 		answers = {}
 		for answer in question.answers.all():
 			exists = search_uncased(answer.text,answers)
@@ -72,7 +75,9 @@ def get_words_json():
 			else:
 				answers[exists] += 1
 		for answer in answers:
-			tags.append({'text':fancify_word(answer),'weight':answers[answer]})
+			bad = search_uncased(answer,badwords)
+			if not bad:
+				tags.append({'text':fancify_word(answer),'weight':answers[answer]})
 	return jsonify(words=tags)
 
 def search_uncased(string,arr):
