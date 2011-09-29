@@ -17,25 +17,15 @@ $(document).ready(function(){
 						top_offset = $(this).position().top;
 						if(top_offset < 0){
 							top_offset = top_offset*-1;
-							$(".graph.clone span").each(function(){ $(this).css('top',(top_offset+$(this).position().top)+"px")});
+							$(".graph.clone span").each(function(){ $(this).css('top',(top_offset+$(this).position().top)+"px");});
 						}
 					});
-					// adjust bottom lower so words are not cut off
-					max_bottom = 0;
-					spans = $(".graph.clone span")
-					for(var i=0;i<spans.length;i++){
-						bottom = $(spans[i]).height()+$(spans[i]).position().top;
-						if(bottom > max_bottom){
-							max_bottom = bottom;
-						}
-					}
-					$(".graph:not[.clone]").height(max_bottom);
-					$(".graph").css('left','0px');
+					$(".graph.jqcloud").animate({'left':'0px'},{'duration':700});
 					$(".graph").removeClass("loading");
 				}});
 			}});
 	}).bind("clear",function(event){
-		$(".graph .jqcloud").remove();
+		$(".graph.jqcloud").remove();
 		$(this).height($(this).data("original_height"));
 		$(this).removeClass("loading");
 	});
