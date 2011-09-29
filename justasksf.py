@@ -75,6 +75,7 @@ def get_words_json():
 	
 @app.route("/cloud")
 def cloud_map():
+	start_session()
 	session['questions'] = [
 	{'key':'words_past','title':'Past','template':'words_past_question.html'},
 	{'key':'words_present','title':'Present','template':'words_present_question.html'},
