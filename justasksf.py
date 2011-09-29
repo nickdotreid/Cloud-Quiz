@@ -66,12 +66,20 @@ def get_words_json():
 		question = get_question(request.form['question'])
 		answers = {}
 		for answer in question.answers.all():
-			if answer.text not in answers:
+			exists = search_uncased(answer.text,answers)
+			if not exists:
 				answers[answer.text] = 1
-			answers[answer.text] += 1
+			else:
+				answers[exists] += 1
 		for answer in answers:
 			tags.append({'text':fancify_word(answer),'weight':answers[answer]})
 	return jsonify(words=tags)
+
+def search_uncased(string,arr):
+	for ele in arr:
+		if ele.lower() == string.lower():
+			return ele
+	return False
 
 def fancify_word(word):
 	for letter in word:
