@@ -20,7 +20,7 @@ $(document).ready(function(){
 			data:{
 				'question':graph.data("question")
 			},success:function(data){
-				$(".graph .cloud:not[.old]").jQCloud(data['words'],{callback:function(){
+				$(".graph .cloud").jQCloud(data['words'],{callback:function(){
 					// if any words above move them lower
 					$(".graph .cloud span").each(function(){
 						top_offset = $(this).position().top;
