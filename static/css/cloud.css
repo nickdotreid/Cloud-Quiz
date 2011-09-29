@@ -18,25 +18,25 @@
 }
 
 .cloud.jqcloud span.w10{
-	font-size:100px;
-}
-.cloud.jqcloud span.w9{
-	font-size:100px;
-}
-.cloud.jqcloud span.w8{
-	font-size:85px;
-}
-.cloud.jqcloud span.w7{
 	font-size:70px;
 }
-.cloud.jqcloud span.w6{
+.cloud.jqcloud span.w9{
+	font-size:60px;
+}
+.cloud.jqcloud span.w8{
+	font-size:50px;
+}
+.cloud.jqcloud span.w7{
 	font-size:55px;
+}
+.cloud.jqcloud span.w6{
+	font-size:50px;
 }
 .cloud.jqcloud span.w5{
 	font-size:40px;
 }
 .cloud.jqcloud span.w4{
-	font-size:25px;
+	font-size:30px;
 }
 .cloud.jqcloud span.w3{
 	font-size:20px;
