@@ -32,14 +32,34 @@ $(document).ready(function(){
 					$(".graph:not[.clone]").height(max_bottom);
 					// add words from graph.clone to graph
 					$(".graph.clone span").each(function(){
-						$(this).clone().appendTo($(".graph:not[.clone]"));
-						// set words in graph so offscreen, then animate to correct position
+						clone = $(this)
+						graph = $(this).clone();
+						graph.appendTo($(".graph:not[.clone]"))
+						graph.css({
+							'left':'0px',
+							'opacity':0
+						}).animate({
+							'left':clone.css("left"),
+							'opacity':1
+						},{
+							'duration':700
+						})
 					});
 					$(".graph.clone").remove();
+					$(".graph").removeClass("loading");
 				}});
 			}});
 	}).bind("clear",function(event){
 		$(this).height($(this).data("original_height"));
-		$(this).removeClass("loading").removeClass("jqcloud").html("");
+		$(this).removeClass("loading").removeClass("jqcloud");
+		$("span",$(this)).animate({
+			'left':$(this).width(),
+			'opacity':1
+		},{
+			'duration':300,
+			'complete':function(){
+				$(this).remove();
+			}
+		});
 	});
 });
