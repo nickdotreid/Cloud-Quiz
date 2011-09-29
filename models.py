@@ -12,6 +12,17 @@ class Answer(db.Model):
 	def __repr__(self):
 		return '<Answer %r>' % self.text
 		
+class BadWord(db.Model):
+	id = db.Column(db.Integer,primary_key=True)
+	text = db.Column(db.String(255))
+	
+	def __init__(self, text):
+		self.text = text
+
+	def __repr__(self):
+		return '<Bad Word %r>' % self.text
+		
+		
 class Question(db.Model):
 	id = db.Column(db.Integer,primary_key=True)
 	text = db.Column(db.String(225))
