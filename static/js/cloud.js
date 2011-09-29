@@ -30,28 +30,13 @@ $(document).ready(function(){
 						}
 					}
 					$(".graph:not[.clone]").height(max_bottom);
-					// add words from graph.clone to graph
-					$(".graph.clone span").each(function(){
-						clone = $(this)
-						graph = $(this).clone();
-						graph.appendTo($(".graph:not[.clone]"))
-						graph.css({
-							'left':'0px',
-							'opacity':0
-						}).animate({
-							'left':clone.css("left"),
-							'opacity':1
-						},{
-							'duration':700
-						})
-					});
-					$(".graph.clone").remove();
+					$(".graph").css('left','0px');
 					$(".graph").removeClass("loading");
 				}});
 			}});
 	}).bind("clear",function(event){
+		$(".graph .jqcloud").remove();
 		$(this).height($(this).data("original_height"));
-		$(this).removeClass("loading").removeClass("jqcloud");
-		$("span").remove();
+		$(this).removeClass("loading");
 	});
 });
