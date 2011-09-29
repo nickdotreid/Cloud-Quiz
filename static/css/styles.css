@@ -17,6 +17,10 @@ a,a:visited{
 	font-style:italic;
 }
 
+.loading{
+	background:transparent url('../i/ajax-loader.gif') no-repeat center center;
+}
+
 .wrapper{
 	width:850px;
 	margin:0px auto;
