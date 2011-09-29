@@ -58,6 +58,20 @@ def twilio_connect():
 		                                     from_="+14157023723",
 		                                     body=message)
 	return render_template('sms_form.html')
+
+@app.route("/words",methods=['GET','POST'])
+def get_words_json():
+	tags = []
+	if request.method == "POST" and 'question' in request.form:
+		question = get_question(request.form['question'])
+		answers = {}
+		for answer in question.answers.all():
+			if answer.text not in answers:
+				answers[answer.text] = 1
+			answers[answer.text] += 1
+		for answer in answers:
+			tags.append({'text':answer,'weight':answers[answer]})
+	return jsonify(words=tags)
 	
 @app.route("/cloud")
 def cloud_map():
@@ -67,34 +81,6 @@ def cloud_map():
 	{'key':'words_future','title':'Future','template':'words_future_question.html'},
 	]
 	return render_template('cloud_map.html', questions=session['questions'])
-	
-@app.route("/tagmap",methods=['GET','POST'])
-def get_cloud_image():
-	if request.method == "POST" and 'question' in request.form:
-		return jsonify(words={},img="/static/clouds/"+request.form['question']+".png");
-
-def get_cloud():
-	answers = {}
-	size = (800,800)
-	question = False
-	if request.method == "POST" and 'question' in request.form:
-		if 'width' in request.form and 'height' in request.form:
-			size = (int(request.form['width']),int(request.form['height']))
-		question = get_question(request.form['question'])
-	for answer in question.answers.all():
-		if answer.text not in answers:
-			answers[answer.text] = 1
-		answers[answer.text] += 1
-	if question:
-		import tagcloud
-		import sys
-		sys.path.append(tagcloud.path_to_pytagcloud)
-		import pytagcloud
-	
-		tags = tagcloud.format_tags(answers)
-		cloud = pytagcloud.create_html_data(tags,size)
-		return jsonify(words=cloud[0]['links'])
-	return redirect("/")
 
 @app.route("/words_question",methods=['GET','POST'])
 def save_words():

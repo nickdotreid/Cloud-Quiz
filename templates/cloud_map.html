@@ -2,15 +2,13 @@
 
 {% block scripts %}
 {{ super() }}
-<!--
-<script type="text/javascript" src="/static/js/d3/d3.js"></script>
-<script type="text/javascript" src="/static/js/d3/d3.layout.js"></script>
--->
+<script type="text/javascript" src="/static/jQCloud/jqcloud/jqcloud-0.2.4.js"></script>
 <script type="text/javascript" src="/static/js/cloud.js"></script>
 
 {% endblock %}
 {% block styles %}
 {{ super() }}
+<link rel="stylesheet" href="/static/jQCloud/jqcloud/jqcloud.css" />
 <link rel="stylesheet" href="/static/css/cloud.css" />
 {% endblock %}
 
@@ -31,5 +29,5 @@
 <div class="questions">
 {{ super() }}
 </div>
-<div class="graph"></div>
+<div class="graph cloud"></div>
 {% endblock %}

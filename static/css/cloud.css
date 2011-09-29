@@ -15,3 +15,8 @@
 	color:#000;
 	font-family:"droid-sans,sans-serif";
 }
+
+.graph.jqcloud span.w10, .graph.jqcloud span.w9, .graph.jqcloud span.w8, .graph.jqcloud span.w7{
+	color:#000;
+	font-weight:bold;
+}
