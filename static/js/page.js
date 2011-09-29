@@ -49,6 +49,6 @@ $(document).ready(function(){
 		$($(this).attr("href")).show();
 	})
 	$(".questions .question").hide();
-	$("#head .questions a:first").click();
+	setTimeout('$("#head .questions a:first").click()',200);
 
 })
