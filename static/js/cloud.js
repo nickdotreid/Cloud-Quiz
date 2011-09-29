@@ -1,9 +1,9 @@
 $(document).ready(function(){
-	$(".graph").data("original_height",$(".graph").height()).bind("get",function(event){
+	$(".graph:not[.jqcloud]").bind("get",function(event){
 		graph = $(this);
 		graph.trigger("clear");
-		clone = graph.clone().addClass("clone").appendTo(graph).css("left",(0-graph.width()+"px"));
-		graph.addClass("loading").addClass("jqcloud");
+		clone = graph.clone().html("").removeClass("graph").addClass("cloud").appendTo(graph).css("left",(0-graph.width()+"px"));
+		graph.addClass("loading");
 		$.ajax({
 			type:"POST",
 			dataType:"json",
@@ -11,22 +11,21 @@ $(document).ready(function(){
 			data:{
 				'question':graph.data("question")
 			},success:function(data){
-				$(".graph.clone").jQCloud(data['words'],{callback:function(){
+				$(".graph .cloud:last").jQCloud(data['words'],{callback:function(){
 					// if any words above move them lower
-					$(".graph.clone span").each(function(){
+					$(".graph .cloud span").each(function(){
 						top_offset = $(this).position().top;
 						if(top_offset < 0){
 							top_offset = top_offset*-1;
-							$(".graph.clone span").each(function(){ $(this).css('top',(top_offset+$(this).position().top)+"px");});
+							$("span",$(this).parent()).each(function(){ $(this).css('top',(top_offset+$(this).position().top)+"px");});
 						}
 					});
-					$(".graph.jqcloud").animate({'left':'0px'},{'duration':700});
+					$(".graph .cloud").animate({'left':'0px'},{'duration':700});
 					$(".graph").removeClass("loading");
 				}});
 			}});
 	}).bind("clear",function(event){
-		$(".graph.jqcloud").remove();
-		$(this).height($(this).data("original_height"));
+		$(".cloud.jqcloud").remove();
 		$(this).removeClass("loading");
 	});
 });

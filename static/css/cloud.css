@@ -6,47 +6,44 @@
 .graph{
 	display:none;
 }
-.js .graph{
+.js .graph,.cloud{
 	display:block;
 	height:500px;
 	overflow:hidden;
 	position:relative;
 }
-.graph.clone{
-	
-}
 
-.graph.jqcloud span.w10, .graph.jqcloud span.w9, .graph.jqcloud span.w8, .graph.jqcloud span.w7, .graph.jqcloud span.w6, .graph.jqcloud span.w5, .graph.jqcloud span.w4, .graph.jqcloud span.w3, .graph.jqcloud span.w2, .graph.jqcloud span.w1{
+.cloud.jqcloud span.w10, .cloud.jqcloud span.w9, .cloud.jqcloud span.w8, .cloud.jqcloud span.w7, .cloud.jqcloud span.w6, .cloud.jqcloud span.w5, .cloud.jqcloud span.w4, .cloud.jqcloud span.w3, .cloud.jqcloud span.w2, .cloud.jqcloud span.w1{
 	color:#000;
 }
 
-.graph.jqcloud span.w10{
+.cloud.jqcloud span.w10{
 	font-size:200px;
 }
-.graph.jqcloud span.w9{
+.cloud.jqcloud span.w9{
 	font-size:150px;
 }
-.graph.jqcloud span.w8{
+.cloud.jqcloud span.w8{
 	font-size:120px;
 }
-.graph.jqcloud span.w7{
+.cloud.jqcloud span.w7{
 	font-size:100px;
 }
-.graph.jqcloud span.w6{
+.cloud.jqcloud span.w6{
 	font-size:80px;
 }
-.graph.jqcloud span.w5{
+.cloud.jqcloud span.w5{
 	font-size:70px;
 }
-.graph.jqcloud span.w4{
+.cloud.jqcloud span.w4{
 	font-size:60px;
 }
-.graph.jqcloud span.w3{
+.cloud.jqcloud span.w3{
 	font-size:50px;
 }
-.graph.jqcloud span.w2{
+.cloud.jqcloud span.w2{
 	font-size:40px;
 }
-.graph.jqcloud span.w1{
+.cloud.jqcloud span.w1{
 	font-size:30px;
 }
