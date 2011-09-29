@@ -52,14 +52,6 @@ $(document).ready(function(){
 	}).bind("clear",function(event){
 		$(this).height($(this).data("original_height"));
 		$(this).removeClass("loading").removeClass("jqcloud");
-		$("span",$(this)).animate({
-			'left':$(this).width(),
-			'opacity':1
-		},{
-			'duration':300,
-			'complete':function(){
-				$(this).remove();
-			}
-		});
+		$("span").remove();
 	});
 });
