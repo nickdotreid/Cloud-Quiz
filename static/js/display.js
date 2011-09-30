@@ -16,7 +16,16 @@ $(document).ready(function(){
 		});
 	}).resize();
 	
+	$("#content").bind("next",function(){
+		if($("#head .list li.selected")[0]==$("#head .list li:last")[0]){
+			$("#head .list li:last a").click();
+			return true;
+		}
+		$("a",$("#head .list li.selected").next()).click();
+	});
+	
 });
+setInterval('$("#content").trigger("next")',5000);
 
 
 function make_css_int(str){
