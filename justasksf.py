@@ -37,19 +37,18 @@ def twilio_connect():
 			words = request.form['Body'].split(' ')
 			if len(words) > 1:
 				question = False
-				words.reverse()
-				term = words.pop()
-				if term == "past":
-					question = get_question("words_past")
-				if term == "present":
-					question = get_question("words_present")
-				if term == "future":
-					question = get_question("words_future")
-				if question:
-					for word in words:
+				for word in words:
+					if term.lower() == "past":
+						question = get_question("words_past")
+					if term.lower() == "present":
+						question = get_question("words_present")
+					if term.lower() == "future":
+						question = get_question("words_future")
+					if question:
 						answer = Answer(word)
 						answer.question = question
 						db.session.add(answer)
+				if question:
 					db.session.commit()
 					message = "Your words have been added to our cloud"
 	if number and message:
