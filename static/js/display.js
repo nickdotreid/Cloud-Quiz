@@ -6,6 +6,8 @@ $(document).ready(function(){
 		});
 	}
 	
+	$("#roadtoaids_foot .roadtoaids.logo").css("left",($(window).width()-$("#roadtoaids_foot .roadtoaids.logo").width())+"px");
+	
 	$(window).resize(function(){
 		content_height = $(window).height() - make_css_int($(".wrapper").css("padding-top"))-make_css_int($(".wrapper").css("padding-bottom"))-make_css_int($("#head").css("margin-top"))-make_css_int($("#head").css("margin-bottom"))-$("#head").height()-$("#foot").height()-make_css_int($("#foot").css("padding-bottom"))-make_css_int($("#foot").css("padding-top"));
 		$("#content").height(content_height);
@@ -14,6 +16,7 @@ $(document).ready(function(){
 			'left':'0px',
 			'top':'0px'
 		});
+		$("#roadtoaids_foot .roadtoaids.logo").css("left",($(window).width()-$("#roadtoaids_foot .roadtoaids.logo").width())+"px");
 	}).resize();
 	
 	$("#content").bind("next",function(){

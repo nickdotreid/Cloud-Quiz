@@ -91,3 +91,28 @@ body{
 	background:transparent url("../i/rta_red_footer.gif") repeat-x center bottom;
 	width:auto;
 }
+
+#roadtoaids_foot{
+	display:block;
+	background-color:transparent;
+	border:0;
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	margin:0px;
+	padding:0px;
+	z-index:0;
+	overflow:hidden;
+}
+
+#roadtoaids_foot .roadtoaids.logo{
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+
+#roadtoaids_foot .sfhiv.logo{
+	background-image:url('../i/dph_seal_small.jpg');
+	width:125px;
+	height:124px;
+}
