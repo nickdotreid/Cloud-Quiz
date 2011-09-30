@@ -1,0 +1,93 @@
+body{
+	font-family:arial,helvetica,sans-serif;
+}
+
+
+.wrapper{
+	width:auto;
+	margin:0px;
+	padding:40px 0px 0px;
+	background-image:none;
+}
+.section{
+	width:auto;
+}
+
+#head{
+	position:relative;
+	left:0px;
+	top:0px;
+	margin:0px 0px 25px;
+	padding:0px;
+	min-height:80px;
+	height:80px;
+	width:auto;
+	background:transparent url('../i/rta_gray_stripes.png') repeat top left;
+}
+#head .instructions{
+	margin:0px;
+	position:absolute;
+	top:80px;
+	right:30px;
+	text-align:right;
+	font-size:25px;
+	font-weight:bold;
+}
+
+#head ul.list li a{
+	color:#e6a3a4;
+	text-decoration:none;
+	font-size:40px;
+}
+#head ul.list li.selected a{
+	color:#c00000;
+}
+#head ul.list li.hidden,#head ul.list li.hidden.selected{
+	display:none;
+}
+
+#head .site_title{
+	background-image:url('../i/justask_logo_rta.png');
+	width:225px;
+	height:117px;
+	top:-20px;
+	left:130px;
+}
+#head .logo.roadtoaids{
+	background:transparent url('../i/roadtoaids_logo_head.png') top left no-repeat;
+	width:110px;
+	height:112px;
+	position:absolute;
+	top:-10px;
+	left:10px;
+}
+
+#content{
+	height:auto;
+	overflow:hidden;
+}
+#content .graph{
+	height:400px
+}
+
+#content .explination{
+  font-size: 27px;
+    margin: 0 auto;
+    padding: 30px;
+    width: 700px;
+}
+#content .explination p{
+	margin:0px 0px 7px;
+}
+#content .explination em{
+	color:#C00000;
+	font-style:none;
+}
+
+#foot .help,#foot .info,#roadtoaids_foot{
+	display:none;
+}
+#foot{
+	background:transparent url("../i/rta_red_footer.gif") repeat-x center bottom;
+	width:auto;
+}
