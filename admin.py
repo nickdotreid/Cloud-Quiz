@@ -14,7 +14,7 @@ db = SQLAlchemy(app)
 from models import *
 from flaskext import admin
 
-admin_blueprint = admin.create_admin_blueprint((Question, Answer, User), db.session)
+admin_blueprint = admin.create_admin_blueprint((Question, Answer, User, BadWord), db.session)
 app.register_blueprint(admin_blueprint, url_prefix='/admin')
 
 @app.route("/")
