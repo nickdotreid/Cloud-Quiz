@@ -23,9 +23,8 @@ $(document).ready(function(){
 		}
 		$("a",$("#head .list li.selected").next()).click();
 	});
-	
+	setInterval('$("#content").trigger("next")',5000);
 });
-setInterval('$("#content").trigger("next")',5000);
 
 
 function make_css_int(str){
