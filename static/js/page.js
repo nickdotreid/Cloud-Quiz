@@ -5,7 +5,7 @@ $(document).ready(function(){
 	$("form").append('<input type="hidden" value="true" name="ajax" />').submit(function(event){
 		event.preventDefault();
 		form = $(this);
-		if(!form.validate({rules:{text: {required: true,maxlength: 500}}}).form()){
+		if(!form.validate({rules:{text: {required: true,maxlength: 255}}}).form()){
 			return false;
 		}
 		$.ajax({

@@ -152,7 +152,7 @@ def ask_question():
 	success = False
 	errors = {}
 	if request.method == "POST" and 'honeypot' in request.form and len(request.form['honeypot']) < 1 and 'text' in request.form:
-		if len(request.form['text']) > 0 and len(request.form['text']) < 550:
+		if len(request.form['text']) > 0 and len(request.form['text']) < 255:
 			question = get_question("ask question")
 			answer = Answer(request.form['text'])
 			answer.question = question
