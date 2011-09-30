@@ -92,6 +92,15 @@ def fancify_word(word):
 			return word
 	return word.capitalize()
 	
+@app.route("/cloud/display")
+def display_cloud_map():
+	session['questions'] = [
+	{'key':'words_past','title':'Past','template':'words_past_question.html'},
+	{'key':'words_present','title':'Present','template':'words_present_question.html'},
+	{'key':'words_future','title':'Future','template':'words_future_question.html'},
+	]
+	return render_template('roadtoaids_display.html', questions=session['questions'])
+
 @app.route("/cloud")
 def cloud_map():
 	start_session()
