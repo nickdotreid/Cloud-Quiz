@@ -23,7 +23,7 @@ $(document).ready(function(){
 		}
 		$("a",$("#head .list li.selected").next()).click();
 	});
-	setInterval('$("#content").trigger("next")',5000);
+	setInterval('$("#content").trigger("next")',70000);
 });
 
 
