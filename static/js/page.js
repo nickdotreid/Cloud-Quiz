@@ -36,17 +36,23 @@ $(document).ready(function(){
 		}
 	})
 	
-	$("#head .list a").click(function(){
+	$("#head .list").delegate("a","click",function(){
+		$("#content .explination").fadeOut();
+		$(".questions .question").fadeOut();
 		$(".graph").trigger("clear");
 		$(".questions li").removeClass("selected");
-		$(".questions .question").hide();
 		$(this).parent().addClass('selected').trigger("get");
-	});
-	$("#head .list li").bind("get",function(event){
-		$(".graph").data("question",$(this).data("question")).trigger("get");
-	}).delegate("a","click",function(event){
+	}).delegate("li","get",function(event){
+		element = $(this);
+		$("#content .graph").data("question",false);
+		if(element.data("question")){
+			$("#content .graph").fadeIn().data("question",$(this).data("question")).trigger("get");
+			return false;
+		}
+		$($("a",element).attr("href")).fadeIn();
+	}).delegate("li a","click",function(event){
 		event.preventDefault();
-		$($(this).attr("href")).show();
+		$($(this).attr("href")).fadeIn();
 	})
 	$(".questions .question").hide();
 	setTimeout('$("#head .questions a:first").click()',200);

@@ -18,7 +18,7 @@ $(document).ready(function(){
 	
 	$("#content").bind("next",function(){
 		if($("#head .list li.selected")[0]==$("#head .list li:last")[0]){
-			$("#head .list li:last a").click();
+			$("#head .list li:first a").click();
 			return true;
 		}
 		$("a",$("#head .list li.selected").next()).click();
