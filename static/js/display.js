@@ -27,7 +27,7 @@ $(document).ready(function(){
 		}
 		$("a",$("#head .list li.selected").next()).click();
 	});
-	setInterval('$("#content").trigger("next")',70000);
+	setInterval('$("#content").trigger("next")',42000);
 });
 
 
