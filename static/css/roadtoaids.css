@@ -79,7 +79,7 @@ body{
 #content .explination p{
 	margin:0px 0px 7px;
 }
-#content .explination em{
+#content .explination em,#head .instructions em{
 	color:#C00000;
 	font-style:none;
 }
