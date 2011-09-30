@@ -16,7 +16,8 @@ $(document).ready(function(){
 			'left':'0px',
 			'top':'0px'
 		});
-		$("#roadtoaids_foot .roadtoaids.logo").css("left",($(window).width()-$("#roadtoaids_foot .roadtoaids.logo").width())+"px");
+		$("#roadtoaids_foot").width($("#content").width());
+		$("#roadtoaids_foot .roadtoaids.logo").css("left",($(window).width()-$("#roadtoaids_foot .roadtoaids.logo").width()-20)+"px");
 	}).resize();
 	
 	$("#content").bind("next",function(){
