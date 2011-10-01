@@ -38,11 +38,11 @@ def twilio_connect():
 			if len(words) > 1:
 				question = False
 				for word in words:
-					if term.lower() == "past":
+					if word.lower() == "past":
 						question = get_question("words_past")
-					if term.lower() == "present":
+					if word.lower() == "present":
 						question = get_question("words_present")
-					if term.lower() == "future":
+					if word.lower() == "future":
 						question = get_question("words_future")
 					if question:
 						answer = Answer(word)
