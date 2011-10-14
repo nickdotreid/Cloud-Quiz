@@ -206,8 +206,8 @@ def redirect_to_register():
 	
 def start_session():
 	session['questions'] = [
-		{'key':'ask','template':'ask_question.html'},
 		{'key':'topic','template':'topic_question.html'},
+		{'key':'ask','template':'ask_question.html'},
 		{'key':'email','template':'email_question.html'}
 		]
 	session['answers'] = []
