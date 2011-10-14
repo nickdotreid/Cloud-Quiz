@@ -1,7 +1,6 @@
 {% if success %}
 <div id="ask_question" class="question {% if success %}success{% endif %}">
 	<h2>Thanks For Asking</h2>
-	<p>We will ask your question at <a href="/townhall">San Francisco’s HIV/AIDS Town Hall</a> on Sepetember 30.</p>
 	<div class="message">
 		<span class="label">Your Question:</span>
 		<p>{{form['text']}}</p>
@@ -16,8 +15,7 @@
 	<form action="/ask_question" method="POST">
 		<legend>
 		<div class="info">
-			<p>Ask a question about HIV and your community and have it answered by local, state, and federal leaders at <a href="/townhall">San Francisco's HIV/AIDS Town Hall</a> September 30 at City Hall. </p>
-			<p><a href="/townhall">Learn more about the Town Hall</a></p>
+			<p>Just Ask a question about HIV and your community.  We are going to use your questions guide the direction of this website.</p>
 		</div>
 		</legend>
 		<label for="question-text">Ask a Question About HIV And Your Community</label>
